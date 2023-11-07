@@ -1,0 +1,887 @@
+<!DOCTYPE html><html class="pb-page" data-request-id="030356be-15df-42f9-a0ef-9a2ec2854f09" lang="en"><head data-pb-dropzone="head"><meta content=";wgroup:string:ACHS website Group;subPage:string:Articles List;pageGroup:string:Editor Choice;website:website:acspubs" name="pbContext"/><title> ACS 编辑之选</title><meta charset="utf-8"/><meta content="noarchive,noindex,nofollow" name="robots"><meta content="width=device-width,initial-scale=1,maximum-scale=10, user-scalable=0" name="viewport"/><meta content="telephone=no" name="format-detection"/><link href="/wro/m4dd~article-metrics-phase2.css" rel="stylesheet" type="text/css"/><link href="/wro/m4dd~product.css" rel="stylesheet" type="text/css"/><link as="font" crossorigin="anonymous" href="/products/achs/releasedAssets/fonts/icomoon/icomoon.woff" rel="preload" type="font/woff"><link as="font" crossorigin="anonymous" href="/products/achs/releasedAssets/fonts/roboto/r-roboto-regular-7.woff2" rel="preload" type="font/woff2"><link as="font" crossorigin="anonymous" href="/products/achs/releasedAssets/fonts/cabinCondensed/c-cabinCondensed-regular.woff2" rel="preload" type="font/woff2"/><link as="font" crossorigin="anonymous" href="/products/achs/releasedAssets/fonts/lato/l-lato-regular.woff2" rel="preload" type="font/woff2"/><link href="/products/achs/releasedAssets/css/build-5e5d926a502c78c5ae47.css" rel="stylesheet"/><meta content="IE=edge" http-equiv="X-UA-Compatible"/><meta content="text/html; charset=utf-8" http-equiv="content-type"/><link href="/pb-assets/styles/achs-1679476987063.css" rel="stylesheet" type="text/css"/><link href="/pb-assets/styles/acs-1677090181900.css" rel="stylesheet" type="text/css"/><script src="/templates/jsp/js/jquery-3.1.1.min.js" type="text/javascript"></script><script src="/pb-assets/javascript/eloqua-1619549134767.js" type="text/javascript"></script><script async="" rel="preconnect" src="https://www.googletagservices.com/tag/js/gpt.js" type="text/javascript"></script><script data-cf-beacon='{"rayId":"5200035e6e4d5180","startTime":1570117212010}' defer="" src="https://static.cloudflareinsights.com/beacon.min.js"></script><script crossorigin="anonymous" data-cf-beacon='{"rayId":"7224ce26191e6f50","token":"0562ec7bcba14d1cae3543aa43d6e749","version":"2022.6.0","si":100}' defer="" integrity="sha512-Gi7xpJR8tSkrpF7aordPZQlW2DLtzUlZcumS8dMQjwDHEnw9I7ZLyiOj/6tZStRBGtGgN6ceN6cMH8z7etPGlw==" src="https://static.cloudflareinsights.com/beacon.min.js/v652eace1692a40cfa3763df669d7439c1639079717194"></script><!-- ACHS-7903: Global site tag (gtag.js) - Google Analytics --><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-Q72ZQB7GTR"></script><script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Q72ZQB7GTR');
+</script><script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-7663985-4"></script><script type="text/javascript">
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+
+                gtag('config', 'UA-7663985-4');
+            </script><link href="https://pubs.acs.org/editorschoice/feed/rss" rel="canonical"/><!-- loading Javascript for using the persistence Service --><script src="/templates/jsp/pb2/js/plugin/thiss-ds.js"></script><script type="text/javascript">
+
+        var SeamlessAccessService = {
+            spUrl: "/action/ssostart",
+            returnURL: window.location.href,
+            my_context: 'seamlessaccess.org',
+            alt_context: window.location.origin,
+            timeout: 5000,
+
+            getWAYFLessUrl: function (entityId) {
+                return this.spUrl + "?idp=" + encodeURIComponent(entityId)
+                    + "&redirectUri=" + encodeURIComponent(this.returnURL);
+            },
+            retrieveEntity: function (ms) {
+                var self = this;
+                var persistService = new thiss.PersistenceService('https://service.seamlessaccess.org/ps/');
+
+                if (ms == undefined || ms === '') {
+                    ms = this.timeout;
+                }
+
+                return new Promise(function (resolve, reject) {
+                    persistService.entities(self.my_context)
+                        .then(function (res) {
+                            // get the results
+                            var results = res.data;
+                            if (results.length == 0) {
+                                persistService.entities(self.alt_context).then((res) => {
+                                    return resolve(res.data);
+                                }, function (err) {
+                                    // failed
+                                    reject('failed to retrieve entity from local storage (publisher domain): ' + err);
+                                });
+                            } else {
+                                return resolve(results);
+                            }
+                        }, function (err) {
+                            // failed
+                            reject('failed to retrieve entity from local storage: ' + err);
+                        });
+                    // Set up the timeout
+                    setTimeout(function () {
+                        reject('Promise timed out ' + ms + ' ms');
+                    }, ms);
+                });
+            },
+            updateEntity: function (entitydata) {
+                var self = this;
+                var persistService = new thiss.PersistenceService('https://service.seamlessaccess.org/ps/');
+
+                var jsonObj = {};
+                try {
+                    //try to parse it, if it is a json string
+                    jsonObj = JSON.parse(entitydata.val());
+                } catch (e) {
+                    jsonObj = entitydata;
+                }
+                return new Promise(function (resolve, reject) {
+                    persistService.update(self.my_context, jsonObj)
+                        .then(function (res) {
+                            // Process the results
+                            var ssoInstitutions = res.data;
+                            return resolve(ssoInstitutions);
+                        }, function (err) {
+                            // failed
+                            console.log('failed to update the local storage duo to: ' + err);
+                            reject(err);
+                        });
+                    persistService.update(self.alt_context, jsonObj)
+                        .then(function (res) {
+                            // Process the results
+                            var ssoInstitutions = res.data;
+                            return resolve(ssoInstitutions);
+                        }, function (err) {
+                            // failed
+                            console.log('failed to update the local storage (publisher domain) duo to: ' + err);
+                            reject(err);
+                        });
+                })
+            },
+            removeEntity: function (entityId) {
+                var self = this;
+                var persistService = new thiss.PersistenceService('https://service.seamlessaccess.org/ps/');
+
+                return new Promise(function (resolve) {
+                    persistService.remove(self.my_context, entityId)
+                        .then(function (res) {
+                            var results = res.data;
+                            if (!results) {
+                                persistService.remove(self.alt_context, entityId).then((res) => {
+                                    return resolve(res);
+                                }, function (err) {
+                                    // failed
+                                    console.log('failed to remove from local storage (publisher domain) duo to: ' + err);
+                                });
+                            }
+                            return resolve(res);
+                        }, function (err) {
+                            // failed
+                            console.log('failed to remove from local storage duo to: ' + err);
+                        });
+                })
+            },
+            getAccessibleEntityStatus: function (doi, entityId, entityTitle) {
+                return new Promise(function (resolve, reject) {
+                    $.ajax({
+                        type: 'POST',
+                        url: '/action/seamlessAccess',
+                        accept: {
+                            text: "application/json"
+                        },
+                        data: {
+                            doi: doi,
+                            entityid: entityId,
+                            entityTitle: entityTitle,
+                            eventGroupKey: '1dd001a8-2287-4281-ad40-52e0078ab9d5'
+                        }
+
+                    }).done(function (status) {
+                        return resolve(status);
+                    }).fail(function (status) {
+                        return reject(status);
+                    });
+                });
+            },
+            getEntitiesWithAllInfo: function (doi) {
+                let self = this,
+                    arrayOfPromises = [];
+                return new Promise(function (resolve, reject) {
+                    self.retrieveEntity().then(function (res) {
+                        let allSsoInstitutions = res;
+                        for (i = 0; i < allSsoInstitutions.length; i++) {
+                            let ssoInstitution = allSsoInstitutions[i];
+                            arrayOfPromises.push(new Promise(function (resolve) {
+                                self.getAccessibleEntityStatus(doi, ssoInstitution.entity.entityID, ssoInstitution.entity.title)
+                                    .then(function (entityStatus) {
+                                        resolve({
+                                            entityID: ssoInstitution.entity.entityID,
+                                            entityTitle: ssoInstitution.entity.title,
+                                            entityStatusObj: entityStatus,
+                                            entitySsoUrl: self.getWAYFLessUrl(ssoInstitution.entity.entityID)
+                                        });
+                                    }, function (err) {
+                                        console.log('failed to get the entity status: ' + ssoInstitution.entity.entityID,err);
+                                    });
+                            }));
+                        }
+                        if(allSsoInstitutions.length === 0 && true){
+                            self.getAccessibleEntityStatus(doi, null, null)
+                                .then(function () {
+                                    console.log('No Entity found');
+                                }, function (err) {
+                                    console.log('failed to get the none entity status' ,err);
+                                });
+                        }
+                        Promise.all(arrayOfPromises)
+                            .then(function (finalResponse) {
+                                resolve(finalResponse);
+                            }).catch(function (err) {
+                                reject(err);
+                            });
+
+                    }).catch(function (err) {
+                        reject(err);
+                    })
+                });
+            }
+        };
+
+        window.addEventListener('load', function () {
+            document.querySelectorAll(".sso-institution").forEach(function (institution) {
+                var entityId = institution.getAttribute('data-entityid');
+                var entityName = institution.getAttribute('data-name');
+                var entitydata = {
+                    entityID: entityId,
+                    title: entityName
+                };
+                institution.addEventListener("click", function (e) {
+                    e.preventDefault();
+
+                    if ($('.institution-preference-userconsent-checkbox').length > 0) {
+                        let institutionPreferenceUserConsentCheckbox = $('.institution-preference-userconsent-checkbox').get(0);
+                        if (!$(institutionPreferenceUserConsentCheckbox).is(":checked")) {
+                            return;
+                        }
+                    }
+
+                    var self = this;
+                    SeamlessAccessService.updateEntity(entitydata).then(function (res) {
+                        console.log(res);
+                        window.location.href = self.href;
+                    }).catch(function (err) {
+                        window.location.href = self.href;
+                    });
+                });
+            });
+        });
+
+    </script><meta content="uBHpu2M2kL7VihPCSRXWyBSxooDf7L_BGgfHA3cjSfY" name="google-site-verification"><link href="https://tpc.googlesyndication.com/safeframe/1-0-29/html/container.html" rel="prefetch"/><link href="/pb-assets/ux3/favicon-1635812676023.ico" rel="shortcut icon"/></meta></link></link></meta></head><body class="pb-ui"><script type="text/javascript">
+
+    if(false) {
+        document.getElementById("skipNavigationLink").onclick =function skipElement () {
+            var element = document.getElementById('');
+            if(element == null || element == undefined) {
+                element = document.getElementsByClassName('').item(0);
+            }
+            element.setAttribute('tabindex','0');
+            element.focus();
+
+        }
+
+    }
+
+</script><div data-ng-non-bindable="" id="pb-page-content"><div data-pb-dropzone="main" data-pb-dropzone-name="Main"><div aria-atomic="true" aria-live="polite" class="achs-mendeley"><input class="tokenEndpoint" name="tokenEndpoint" type="hidden" value="https://sso.acs.org/mendeley/token"/><input class="appID" name="appID" type="hidden" value="literatum"/><input class="reopen-mendeley-modal-after-reload" name="reopen-mendeley-modal-after-reload" type="hidden"/><input class="statusEndpoint" name="statusEndpoint" type="hidden" value="https://sso.acs.org/idp/status"/><input class="clientID" name="clientID" type="hidden" value="atypon-lives"/><div class="achs-mendeley_table"><div class="achs-mendeley_row"><div class="achs-mendeley_cell loop-trap"><div class="achs-mendeley_container"> <a aria-label="close" class="achs-mendeley_close" tabindex="0" title="关闭"><i aria-hidden="true" class="icon-close"></i></a> <div class="achs-mendeley_dropzone1"><div class="achs-mendeley_dropzone1_state1"><p style="font-weight: bold;">配对您的帐户。</p><p>将文章导出到 Mendeley</p><p>根据您的 Mendeley 图书馆中的参考文献从 ACS 获取文章推荐。</p></div><div class="achs-mendeley_dropzone1_state2"><p style="font-weight: bold;">配对您的帐户。</p><p>将文章导出到 Mendeley</p><p>根据您的 Mendeley 图书馆中的参考文献从 ACS 获取文章推荐。</p></div><div class="achs-mendeley_dropzone1_state3"><p style="font-weight: bold;">您已经使用 ACS 和 Mendeley 加速了您的研究过程！</p></div></div><div class="achs-mendeley_continue-header"><button class="achs-mendeley_continue-btn"><span class="achs-mendeley_buttonText">继续</span></button></div><div class="achs-mendeley_steps"><div class="achs-mendeley_steps_row"><div class="achs-mendeley_steps_cell achs-mendeley_acsLogin"><h6>步骤1：</h6><button class="button_primary achs-mendeley_acsLogin_button"><span class="achs-mendeley_buttonText">使用 ACS ID</span><span class="achs-mendeley_success_buttonText">登录成功</span>登录</button><span class="achs-mendeley_acsLogin_label">点击创建 ACS ID</span> <i class="icon-if-arrow-right"></i></div><div class="achs-mendeley_steps_cell achs-mendeley_login"><h6>第2步：</h6> <button class="button_primary achs-mendeley_login_button"><i class="icon-mendeley"></i><span class="achs-mendeley_buttonText">使用 Mendeley</span><span class="achs-mendeley_success_buttonText">登录 成功</span>登录</button><a href="https://id.elsevier.com/as/authorization.oauth2?state=c33c27125763433d4d32a15accaacc18&amp;prompt=login&amp;scope=openid%20email%20profile%20els_auth_info&amp;authType=SINGLE_SIGN_IN&amp;response_type=code&amp;platSite=MDY%2Fmendeley&amp;redirect_uri=https%3A%2F%2Fwww.mendeley.com%2Fcallback%2F&amp;client_id=MENDELEY" title="创建 Mendeley 帐户">创建 Mendeley 帐户</a></div></div></div><div class="achs-mendeley_dropzone2"><div class="achs-mendeley_dropzone2_state1"><p style="font-weight: bold;font-style:italic;">请注意：如果您切换到不同的设备，您可能会被要求仅使用您的 ACS ID 重新登录。 </p></div><div class="achs-mendeley_dropzone2_state2"><p style="font-weight: bold;font-style:italic;">请注意：如果您切换到不同的设备，您可能会被要求仅使用您的 ACS ID 重新登录。 </p></div><div class="achs-mendeley_dropzone2_state3"><p style="font-weight: bold;font-style:italic;">请注意：如果您切换到不同的设备，您可能会被要求仅使用您的 ACS ID 重新登录。 </p></div></div></div></div></div></div></div><div class="achs-mendeley_alert"><div class="achs-mendeley_alert_table"><div class="achs-mendeley_alert_row"><div class="achs-mendeley_alert_cell"><div class="achs-mendeley_alert_container"> <a aria-label="close" class="achs-mendeley_alert_close" title="关闭"><i aria-hidden="true" class="icon-close"></i></a><div aria-atomic="true" aria-live="polite" class="achs-mendeley_alert_dropzone" role="alert"><p>在连接到您的 Mendeley 帐户之前，请使用您的 ACS ID 登录。</p> <button class="button_tertiary achs-mendeley_acsLogin_button mendeley-acs-custom-login-btn" onclick="loginToAcsSso(event); return false;">使用 ACS ID 登录</button><script>
+ function loginToAcsSso(event){
+ event.preventDefault();
+ $('.achs-mendeley_acsLogin .achs-mendeley_acsLogin_button').trigger('click');
+ }
+</script></div><div class="achs-mendeley_alert_error-msg"></div></div></div></div></div><div class="pairing-expired-dialog-container"><div class="pairing-expired-dialog"><div class="pairing-expired-dialog_top-btns"> <span class="pairing-expired-dialog_heading">MENDELEY 配对过期重新</span><button class="pairing-expired-dialog_reconnect" onclick="UX.achsMendeley.reconnectOnClickHandler();">连接</button></div><div class="pairing-expired-dialog_content"><span>您的 Mendeley 配对已过期。请重新连接</span></div></div></div></div><div class="hide" data-widget-def="UX3HTMLWidget" data-widget-id="ed6ae788-7707-48f4-b02c-3187c75e10db"></div><div class="pb-ad"><script type="text/javascript">
+	var dartInstitutionType = 'none';
+	var dartMember = 'false';
+</script></div><script type="text/javascript">
+$(document).ready(function() {
+  window.googletag = window.googletag || {cmd: []};
+  var currentJournal = "";
+  googletag.cmd.push(function(){
+    var mappingLeader = googletag.sizeMapping().
+      addSize([320, 400], [320, 50]).
+      addSize([320, 700], [320, 50]).
+      addSize([750, 200], [728, 90]).
+      addSize([980, 600], [728, 90]).
+      addSize([1024, 600], [728, 90]).
+      build();
+
+    var mappingLeaderCEN = googletag.sizeMapping().
+      addSize([320, 400], [[1, 1], [320, 50]]).
+      addSize([320, 700], [[1, 1], [320, 50]]).
+      addSize([750, 200], [[1, 1], [728, 90]]).
+      addSize([980, 600], [[1, 1], [728, 90]]).
+      addSize([1024, 600], [[1, 1], [728, 90]]).
+      build();
+
+    var mappingLeaderArticleList = googletag.sizeMapping().
+      addSize([320, 400], [[1, 1], [320, 50]]).
+      addSize([320, 700], [[1, 1], [320, 50]]).
+      addSize([750, 200], [[1, 1], [320, 50]]).
+      addSize([980, 600], [[1, 1], [320, 50]]).
+      addSize([1024, 600], [[1, 1], [728, 90]]).
+      build();
+
+    // pubs homepage
+    if( ((currentJournal === ("{"+"{journal.dartId}"+"}")) || (currentJournal === ("")) ) && ($("main.homepage").length) ) {
+      googletag.defineSlot("/8868/pubs/homepage",
+        [[1, 1], [300, 250]], "dfp-pubs-rectangle-1").
+        setTargeting("location", "rectangle1").
+        setTargeting("ntvPlacement", ["1100168"]).
+        addService(googletag.pubads());
+    }
+
+    // search results
+    else if( $("main.search-result").length ) {
+      googletag.defineSlot("/8868/pubs/search",
+        [1, 1], "dfp-pubs-search-sponsor-1").
+        setTargeting("location", "sponsor1").
+        setTargeting("ntvPlacement", ["1101382"]).
+        addService(googletag.pubads());
+      googletag.defineSlot("/8868/pubs/search",
+        [1, 1], "dfp-pubs-search-sponsor-2").
+        setTargeting("location", "sponsor2").
+        setTargeting("ntvPlacement", ["1101383"]).
+        addService(googletag.pubads());
+    }
+
+    // editors choice
+    else if( $("main.editorschoice").length ) {
+      googletag.defineSlot("/8868/pubs/editorschoice",
+        [[1, 1], [728, 90]], "dfp-pubs-editorschoice-sponsor-1").
+        defineSizeMapping(mappingLeaderArticleList).
+        setTargeting("location", "sponsor1").
+        setTargeting("ntvPlacement", ["1100169"]).
+        addService(googletag.pubads());
+      googletag.defineSlot("/8868/pubs/editorschoice",
+        [[1, 1], [728, 90]], "dfp-pubs-editorschoice-sponsor-2").
+        defineSizeMapping(mappingLeaderArticleList).
+        setTargeting("location", "sponsor2").
+        setTargeting("ntvPlacement", ["1100170"]).
+        addService(googletag.pubads());
+    }
+
+    // c&en global enterprise
+    else if((currentJournal === "cen_global_enterprise") || (($("main.cen-hp").length)) ) {
+      googletag.defineSlot("/8868/journal//homepage", 
+        [1, 1], "dfp-journal-hp-revealer").
+        defineSizeMapping(mappingLeaderCEN).
+        setTargeting("pos", "Journals_HR").
+        addService(googletag.pubads());
+      googletag.defineSlot("/8868/journal//homepage",
+        [728, 90], "dfp-journal-hp-leaderboard").
+        defineSizeMapping(mappingLeaderCEN).
+        setTargeting("location", "leaderboard1").
+        addService(googletag.pubads());
+      googletag.defineSlot("/8868/journal//homepage",
+        [1, 1], "dfp-journal-hp-rectangle-1").
+        setTargeting("ntvPlacement", ["1100648"]).
+        setTargeting("location", "rectangle1").
+        addService(googletag.pubads());
+      googletag.defineSlot("/8868/journal//homepage",
+        [1, 1], "dfp-journal-hp-rectangle-2").
+        setTargeting("ntvPlacement", ["1100649"]).
+        setTargeting("location", "rectangle2").
+        addService(googletag.pubads());
+      googletag.defineSlot("/8868/journal//homepage",
+        [[1, 1], [300, 250]] , "dfp-journal-hp-rectangle-3").
+        setTargeting("ntvPlacement", ["1100651"]).
+        setTargeting("location", "rectangle3").
+        addService(googletag.pubads());
+    }
+
+    //journal home page
+    else if( $("main.journal-home").length ) {
+      googletag.defineSlot("/8868/journal//homepage", [1, 1], "dfp-journal-hp-revealer").
+        setTargeting("pos", "Journals_HR").
+        addService(googletag.pubads());
+      googletag.defineSlot("/8868/journal//homepage", [728, 90], "dfp-journal-hp-leaderboard").
+        defineSizeMapping(mappingLeader).
+        setTargeting("location", "leaderboard1").
+        addService(googletag.pubads());
+      // googletag.defineSlot("/8868/journal//homepage",
+      //   [[1, 1], [300, 250]], "dfp-journal-hp-rectangle-1").
+      //   setTargeting("ntvPlacement", ["1100164"]).
+      //   setTargeting("location", "rectangle1").
+      //   addService(googletag.pubads());
+      // googletag.defineSlot("/8868/journal//homepage",
+      //   [[1, 1], [300, 250]], "dfp-journal-hp-rectangle-2").
+      //   setTargeting("ntvPlacement", ["1100165"]).
+      //   setTargeting("location", "rectangle2").
+      //   addService(googletag.pubads());
+      googletag.defineSlot("/8868/journal//homepage",
+        [[1, 1], [300, 250]], "dfp-journal-hp-rectangle-3").
+        setTargeting("ntvPlacement", ["1100166"]).
+        setTargeting("location", "rectangle3").
+        addService(googletag.pubads());
+      // googletag.defineSlot("/8868/journal//homepage",
+      //   [1, 1], "dfp-journal-hp-rectangle-4").
+      //   setTargeting("ntvPlacement", ["1100167"]).
+      //   setTargeting("location", "rectangle4").
+      //   addService(googletag.pubads());
+      // googletag.defineSlot("/8868/journal//homepage",
+      //   [1, 1], "dfp-journal-hp-rectangle-5").
+      //   setTargeting("ntvPlacement", ["1100303"]).
+      //   setTargeting("location", "rectangle5").
+      //   addService(googletag.pubads());
+      // googletag.defineSlot("/8868/journal//homepage",
+      //   [[1, 1], [300, 250]], "dfp-journal-hp-rectangle-6").
+      //   setTargeting("ntvPlacement", ["1100304"]).
+      //   setTargeting("location", "rectangle6").
+      //   addService(googletag.pubads());
+    }
+
+    // journal secondary pages
+    else if( $("main.pubs-custom").length ) {
+      googletag.defineSlot("/8868/journal//homepage",
+        [300, 250], "dfp-journal-hp-rectangle-1").
+        setTargeting("location", "rectangle1").
+        addService(googletag.pubads());
+    }
+
+    //journal toc
+    else if( $("main.toc").length ) {
+      googletag.defineSlot("/8868/journal//all_toc/toc",
+        [[1, 1], [728, 90]], "dfp-journal-toc-sponsor-1").
+        defineSizeMapping(mappingLeaderArticleList).
+        setTargeting("location", "sponsor1").
+        setTargeting("ntvPlacement", ["1101380"]).
+        addService(googletag.pubads());
+      googletag.defineSlot("/8868/journal//all_toc/toc",
+        [[1, 1], [728, 90]], "dfp-journal-toc-sponsor-2").
+        defineSizeMapping(mappingLeaderArticleList).
+        setTargeting("location", "sponsor2").
+        setTargeting("ntvPlacement", ["1101381"]).
+        addService(googletag.pubads());
+    }
+
+    // journal asap
+    else if( $("main.asap").length ) {
+      googletag.defineSlot("/8868/journal//all_toc/asap",
+        [[1, 1], [728, 90]], "dfp-journal-asap-sponsor-1").
+        defineSizeMapping(mappingLeaderArticleList).
+        setTargeting("location", "sponsor1").
+        setTargeting("ntvPlacement", ["1101380"]).
+        addService(googletag.pubads());
+      googletag.defineSlot("/8868/journal//all_toc/asap",
+        [[1, 1], [728, 90]], "dfp-journal-asap-sponsor-2").
+        defineSizeMapping(mappingLeaderArticleList).
+        setTargeting("location", "sponsor2").
+        setTargeting("ntvPlacement", ["1101381"]).
+        addService(googletag.pubads());
+    }
+
+    //googletag.pubads().enableSingleRequest();
+    googletag.pubads().
+      setTargeting("inst",dartInstitutionType).
+      setTargeting("memb",dartMember);
+    googletag.pubads().collapseEmptyDivs();
+    
+    googletag.pubads().addEventListener("slotRenderEnded", function(event) {
+      if((currentJournal === "cen_global_enterprise") || (($("main.cen-hp").length)) ) {
+        if ((event.slot.getSlotElementId() === "dfp-journal-hp-rectangle-1") || 
+          (event.slot.getSlotElementId() === "dfp-journal-hp-rectangle-2") || 
+          (event.slot.getSlotElementId() === "dfp-journal-hp-rectangle-3")) {
+          if (event.isEmpty === false) {
+            if(event.size) {
+              $("#" + event.slot.getSlotElementId()).parents(".advertisement").slideDown();
+              console.log("ad display: " + event.creativeId + " " + event.size[0] + "x" + event.size[1]);
+            }
+            else {
+              $("#" + event.slot.getSlotElementId()).parents(".advertisement").hide();
+            }
+          }
+        }
+      }
+      else {
+        if ((event.slot.getSlotElementId() === "dfp-pubs-rectangle-1") || 
+          (event.slot.getSlotElementId() === "dfp-journal-hp-rectangle-3")) {
+          if (event.isEmpty === false) {
+            if(event.size) {
+              $("#" + event.slot.getSlotElementId()).parents(".teaser_advDropZone").slideDown();
+              $("#" + event.slot.getSlotElementId()).parents(".advertisement").slideDown();
+              console.log("ad display: " + event.creativeId + " " + event.size[0] + "x" + event.size[1]);
+            }
+            else {
+              $("#" + event.slot.getSlotElementId()).parents(".teaser_advDropZone").hide();
+              $("#" + event.slot.getSlotElementId()).parents(".advertisement").hide();
+            }
+          }
+        }
+        if((event.slot.getSlotElementId() === "dfp-journal-toc-sponsor-1") || 
+          (event.slot.getSlotElementId() === "dfp-journal-toc-sponsor-2") || 
+          (event.slot.getSlotElementId() === "dfp-journal-asap-sponsor-1") || 
+          (event.slot.getSlotElementId() === "dfp-journal-asap-sponsor-2") || 
+          (event.slot.getSlotElementId() === "dfp-pubs-search-sponsor-1") || 
+          (event.slot.getSlotElementId() === "dfp-pubs-search-sponsor-2")) {
+          if (event.isEmpty === false) {
+            if(event.size) {
+              $("#" + event.slot.getSlotElementId()).parents(".advertisement-container-toc").slideDown();
+              $("#" + event.slot.getSlotElementId()).parents(".advertisement").slideDown();
+              console.log("ad display: " + event.creativeId + " " + event.size[0] + "x" + event.size[1]);
+            }
+            else {
+              $("#" + event.slot.getSlotElementId()).parents(".advertisement-container-toc").hide();
+              $("#" + event.slot.getSlotElementId()).parents(".advertisement").hide();
+            }
+          }
+        }
+      }
+    });
+    googletag.enableServices();
+  });
+});
+</script><header class="header"><div class="header_topbar hidden-sm hidden-xs"><div class="container"><div class="row"><div class="col-lg-3 col-md-4 col-sm-5 header_topbar_left"><div class="header_mainmenu" data-widget-def="UX3HTMLWidget" data-widget-id="0be92cec-36a8-4b4d-9a08-a28c790ce306"><ul><li><a href="http://www.acs.org">自动控制系统</a></li><li class="header_mainmenu_current"><a href="/">美国化学会刊物</a></li><li><a href="https://cen.acs.org">C&amp;EN</a></li><li><a href="https://www.cas.org">中科院</a></li></ul></div></div><div class="col-lg-9 col-md-8 col-sm-7 header_topbar_right"><div class="institution"> <span class="no-institution-wrapper"><a class="no-institution-link" href="/action/ssostart?redirectUri=%2Feditorschoice%2Ffeed%2Frss" title="找到我的机构"><span class="institution_no">找到我的机构</span></a></span></div><div class="user-login-bar"><input class="statusEndpoint" name="statusEndpoint" type="hidden" value="https://sso.acs.org/idp/status"/><input class="clientID" name="clientID" type="hidden" value="atypon-lives"/><input class="heartBeatReloadInterval" name="heartBeatReloadInterval" type="hidden" value="1740000"/><input class="logoutUrl" name="logoutUrl" type="hidden" value="https://pubs.acs.org/action/doLogout?logoutRedirectUrl=https%3A%2F%2Fsso.acs.org%2Fidp%2Fglogout%3Fappid%3Datypon-live%26returnURL%3Dhttps%253A%252F%252Fpubs.acs.org%252F"/><img alt="空白图像" class="ssoHeartBeatImg" src="https://sso.acs.org/idp/heartbeat?appid=atypon-lives&amp;max_auth_age=2592000"/> <span class="user-login-bar__value"><a class="user-login-bar__Login" href="https://pubs.acs.org/action/ssoRequestForLoginPage">登录</a></span><input class="user-login-bar_is-loggedin" name="isUserLoggedIn" type="hidden" value="false"/><input class="pair-device-is-paired" name="isPaired" type="hidden" value="false"/><input class="isStronglyAuthenticated" name="isStronglyAuthenticated" type="hidden" value="false"/></div></div></div></div></div><div class="header_content" data-widget-def="ux3-layout-widget" data-widget-id="6808faec-02bf-4a81-85d3-95e1fe96c4a4"><div class="container"><div class="row"><div class="header_content_left pull-left"> <a href="/" title="美国化学会出版物。最值得信赖。被引用最多。最常阅读"><img alt="美国化学会出版物。最值得信赖。被引用最多。最常阅读" height="35" id="" src="/pb-assets/ux3/pubs-logo-481x82-1523435513963.png" width="205"/></a> </div><div class="header_content_right pull-right"><div class="quick-search"><a aria-label="quick search" class="quick-search_icon icon-search" href="#"></a><div class="quick-search_content"><form action="/action/checkIsValidDoi" autocomplete="off" class="quick-search_default" method="get" name="defaultQuickSearch" title="快速搜索"><input aria-label="Search text, DOI, authors, etc." class="quick-search_all-field autocomplete" data-auto-complete-max-chars="32" data-auto-complete-max-words="7" data-contributors-conf="3" data-history-items-conf="3" data-publication-titles-conf="3" data-topics-conf="3" name="AllField" placeholder="Search text, DOI, authors, etc." required="true" type="search" value=""/><button class="icon-search" title="搜索" type="submit"></button></form><p>或搜索引文</p><form action="/action/quickLink" class="quick-search_citation" method="get" name="citationQuickSearch" title="快速搜索"><input name="quickLink" type="hidden" value="true"/><select class="quick-search_journals-select" name="quickLinkJournal"><option value="">期刊</option><option value="achre4">化学研究报告</option><option value="amrcda">材料研究报告</option><option value="aastgj">ACS农业科技</option><option value="aabmcb">ACS应用生物材料</option><option value="aaembp">ACS应用电子材料</option><option value="aaemcq">ACS应用能源材料</option><option value="aaemdr">美国化学会应用工程材料</option><option value="aamick">ACS 应用材料与界面</option><option value="aanmf6">ACS应用纳米材料</option><option value="aaoma6">ACS应用光学材料</option><option value="aapmcd">ACS应用高分子材料</option><option value="abmcb8">ACS Bio &amp; Med Chem Au</option><option value="abseba"> ACS 生物材料科学与工程</option><option value="accacs">ACS催化</option><option value="acscii">ACS中央科学</option><option value="acbcct">美国化学会化学生物学</option><option value="achsc5">ACS 化学健康与安全</option><option value="acncdm">ACS化学神经科学</option><option value="acsccc">ACS组合科学</option><option value="aesccq">ACS地球与空间化学</option><option value="aelccp">ACS能源快报</option><option value="aeacb3">ACS工程金</option><option value="aeacc4">ACS 环境金</option><option value="aeecco">ACS 环境与技术工程</option><option value="aewcaa">ACS ES&amp;T水</option><option value="afsthl">ACS食品科技</option><option value="aidcbc">ACS 传染病</option><option value="amlccd">ACS宏字母</option><option value="amacgu">ACS材料金</option><option value="amlcef">ACS材料快报</option><option value="amachv">ACS 测量科学 Au</option><option value="amclct"> ACS 药物化学快报</option><option value="ancac3">ACS纳米</option><option value="anaccx">ACS纳米科学金</option><option value="acsodf">ACS欧米茄</option><option value="aoiab5">ACS 有机和无机金</option><option value="aptsfn">ACS 药理学与转化科学</option><option value="apchd5">ACS光子学</option><option value="apcach">ACS 物理化学金</option><option value="apaccd">ACS 聚合物 Au</option><option value="ascefj"> ACS 传感器</option><option value="ascecg">ACS 可持续化学与工程</option><option value="asbcd6">美国化学会合成生物学</option><option value="ancham">分析化学</option><option value="bichaw">生物化学</option><option value="bcches">生物共轭化学</option><option value="bomaf6">生物大分子</option><option value="bipret">生物技术进展</option><option value="cgeabj">C&amp;EN 全球企业</option><option value="cbihbp">化学与生物医学成像</option><option value="cenear">化学与工程新闻档案</option><option value="chlseg">化学品健康与安全</option><option value="chlseg0">化学品健康与安全</option><option value="crtoec">毒理学化学研究</option><option value="chreay">化学评论</option><option value="cmatex">材料化学</option><option value="cgdefu">晶体生长与设计</option><option value="enfuem">能源与燃料</option><option value="ehnea2">环境与健康</option><option value="esthag">环境科学与技术</option><option value="estlcu">环境科技快报</option><option value="iepra6.2">I&amp;EC 产品研发</option><option value="iechad">工业与工程化学</option><option value="iecac0">工业与工程化学分析版</option><option value="iecjc0">工业与工程化学化学与工程数据系列</option><option value="iecfa7">工业与工程化学基础</option><option value="iepdaw">工业与工程化学工艺设计与开发</option><option value="iepra6">工业与工程化学产品研发</option><option value="iecred">工业与工程化学研究</option><option value="iecnav">工业与工程化学，新闻版</option><option value="inocaj">无机化学</option><option value="jaaucr">江淮金</option><option value="jacsat">美国化学会杂志</option><option value="jafcau">农业与食品化学杂志</option><option value="jceaax">化学与工程数据杂志</option><option value="jci001">化学文献杂志</option><option value="jceda8">化学教育杂志</option><option value="jchsc20">化学健康与安全杂志</option><option value="jcics1">化学信息与计算机科学杂志</option><option value="jcisd8">化学信息与建模杂志</option><option value="jctcce">化学理论与计算杂志</option><option value="jcchff">组合化学杂志</option><option value="iechad.1">工业与工程化学杂志</option><option value="jmcmar.1">医药化学杂志</option><option value="jmcmar">药物化学杂志</option><option value="jnprdf">天然产物杂志</option><option value="joceah">有机化学杂志</option><option value="jpchax">物理化学杂志</option><option value="jpchax.2">物理化学杂志</option><option value="jpcafh">物理化学杂志A</option><option value="jpcbfk">物理化学杂志B</option><option value="jpccck">物理化学杂志C</option><option value="jpclcd">物理化学通讯杂志</option><option value="jprobs">蛋白质组研究杂志</option><option value="jamsef">美国质谱学会杂志</option><option value="jamsef1">美国质谱学会杂志</option><option value="jamsef0">美国质谱学会杂志</option><option value="langd5">朗缪尔</option><option value="mamobx">大分子</option><option value="mpohbp">分子药剂学</option><option value="nalefd">纳米快报</option><option value="neaca9">美国化学会新闻版</option><option value="orlef7">有机快报</option><option value="oprdfk">有机工艺研发</option><option value="orgnd7">有机金属</option><option value="pcrhej">精密化学</option><option value="iepra6.1">产品研发</option><option value="scimts">科学会议</option><option value="jpchax.1">物理与胶体化学杂志</option></select><input autocomplete="false" class="quick-search_volume-input" inputmode="numeric" name="quickLinkVolume" pattern="[0-9]*" placeholder="Vol" required="required" type="search"/><input autocomplete="false" class="quick-search_page-input" inputmode="numeric" name="quickLinkPage" pattern="[0-9]*" placeholder="Page" required="required" type="search"/><button class="icon-search" title="搜索" type="submit"></button></form></div></div><div class="header_my-activity"><a href="#"><i aria-hidden="true" class="icon-id-badge"></i><span>我的活动</span></a><div class="header_my-activity-content"><div class="header_my-activity-single"><i aria-hidden="true" aria-label="close" class="icon-close"></i><div class="" data-name="recentlyViewedDropzone"><div class="show-recently"><div class="show-recently-header">最近浏览过的</div><h6 class="show-recently-empty">您还没有访问过任何文章，请访问一些文章以查看此处的内容。</h6></div></div></div></div></div><div class="header_publications"><a class="pubModal_button" href="#"><i aria-hidden="true" class="icon-book"></i><span>刊物</span></a></div><div class="header_burger-menu"><a aria-label="menu button" class="header_burger-menu_button" href="#?utm_source=Pubs_Solutions_Referer&amp;utm_medium=Pubs_MenuIcon&amp;utm_campaign=Pubs_Refere" title="菜单按钮"><i class="icon-navicon"></i><i class="icon-close"></i></a><div class="header_burger-menu_content"><ul class="hidden-lg"><li><a class="pubModal_button" href="#"><i aria-hidden="”true”" class="icon-book"></i><span>出版物</span></a></li><li class="myActivityMobile"> <a class="openTabletActivity" href="#"><i aria-hidden="”true”" class="icon-id-badge"></i><span>我的活动</span></a><ul><li><a class="recentlyViewed--open" href="javascript:void(0)">最近浏览过的</a></li></ul></li></ul><ul><li><a href="#">用户资源</a><ul><li><a href="/page/remoteaccess" onclick="gtag('event', 'Menu', { 'event_category': 'Top Nav', 'event_label':'Access Options'});">访问选项</a></li><li><a href="https://publish.acs.org/publish/" onclick="gtag('event', 'Menu', { 'event_category': 'Top Nav', 'event_label':'Authors &amp; Reviewers'});">作者和审稿人</a></li><li><a href="https://www.acs.org/content/acs/en/membership/member-benefits/publications-discounts.html" onclick="gtag('event', 'Menu', { 'event_category': 'Top Nav', 'event_label':'ACS Members'});">美国化学学会会员</a></li><li><a href="https://pubs.acs.org/page/virtual-collections.html" onclick="gtag('event', 'Menu', { 'event_category': 'Top Nav', 'event_label':'Virtual Issues'});">虚拟问题</a></li><li><a href="https://preferences.acs.org/journals" onclick="gtag('event', 'Click', { 'event_category': 'Home_MainMenu', 'event_label':'eAlert'});">电子警报</a></li><li><a href="/page/follow.html?widget=follow-pane-mobile" onclick="gtag('event', 'Menu', { 'event_category': 'Top Nav', 'event_label':'RSS &amp; Mobile'});">RSS 和手机</a></li></ul></li><li><a href="#">对于组织</a><ul><li><a href="https://solutions.acs.org/?utm_source=Pubs_Solutions_Referer&amp;utm_medium=Pubs_MenuBotton&amp;utm_campaign=Pubs_Referer" onclick="gtag('event', 'Menu', { 'event_category': 'Top Nav', 'event_label':'Products &amp; Services'});">产品与服务</a></li><li><a href="https://solutions.acs.org/access-options/?utm_source=Pubs_Solutions_Referer&amp;utm_medium=Pubs_MenuBotton&amp;utm_campaign=Pubs_Referer" onclick="gtag('event', 'Menu', { 'event_category': 'Top Nav', 'event_label':'Get Access'});">获取访问权限</a></li><li><a href="https://solutions.acs.org/resources/manage-my-account/?utm_source=Pubs_Solutions_Referer&amp;utm_medium=Pubs_MenuBotton&amp;utm_campaign=Pubs_Referer" onclick="gtag('event', 'Menu', { 'event_category': 'Top Nav', 'event_label':'Manage My Account'});">管理我的帐户</a></li></ul></li><li><a href="#">支持</a><ul><li><a href="/page/demo/index.html">网站演示和教程</a></li><li><a href="https://acs.service-now.com/acs" onclick="gtag('event', 'Menu', { 'event_category': 'Top Nav', 'event_label':'Support FAQs'});">支持常见问题</a></li><li><a class="help help-chat" href="#" onclick="SnapEngage.startLink();return false; gtag('event', 'Menu', { 'event_category': 'Top Nav', 'event_label':'Live Chat with Agent'});">与代理实时聊天</a></li><li><a href="https://acsmediakit.org/digital/acs-pubs/?utm_source=Nav&amp;utm_medium=Pubs&amp;utm_campaign=CEN" onclick="gtag('event', 'Menu', { 'event_category': 'Top Nav', 'event_label':'For Advertisers'});">对于广告商</a></li><li><a href="https://solutions.acs.org/who-we-serve/librarians/" onclick="gtag('event', 'Menu', { 'event_category': 'Top Nav', 'event_label':'For Librarians &amp; Account Managers'});">对于图书馆员和客户经理</a></li></ul></li><li class="menu-pair-section hidden-sm hidden-xs"><a href="#">配对</a><ul><li><a class="header_burger-menu_pairadevice-link" href="/pb/widgets/affiliateDevice">配对设备</a></li></ul></li><li class="hidden-lg hidden-md"><a class="header_burger-menu_my-profile-link" href="/action/showPreferences">我的个人资料</a><a class="header_burger-menu_login-link" href="/action/ssoRequestForLoginPage">登录</a><a class="header_burger-menu_logout-link" href="#">注销</a><a class="header_burger-menu_pairadevice-link" href="/pb/widgets/affiliateDevice">配对设备</a></li><li><a href="#">关于我们</a><ul><li><a href="/page/about-us.html" onclick="gtag('event', 'Menu', { 'event_category': 'Top Nav', 'event_label':'Overview'});
+">概述</a></li><li><a href="http://acsopenscience.org" onclick="gtag('event', 'Menu', { 'event_category': 'Top Nav', 'event_label':'ACS &amp; Open Access'});">ACS 和开放获取</a></li><li><a href="/#partners" onclick="gtag('event', 'Menu', { 'event_category': 'Top Nav', 'event_label':'Partners'});
+">伙伴</a></li><li><a href="/events" onclick="gtag('event', 'Menu', { 'event_category': 'Top Nav', 'event_label':'Events'});">事件</a></li></ul></li></ul></div><div class="activity-container-tablet"><i aria-hidden="true" class="icon-close"></i></div></div></div></div></div></div><div class="pub"><div aria-atomic="true" aria-live="polite" class="pub-modal"><div class="pub-modal_content loop-trap"><a aria-label="close" class="pub-modal_close icon-close pull-right" href="#" tabindex="0"></a><div class="pub-modal_row"><div class="pub-modal_left"><div class="pub-modal_left-content"><div class="pub-modal_control hidden-lg hidden-md"><span class="pub-modal_control-text">刊物</span><a class="pub-modal_back" href="#" title="返回键"><i class="icon-angle-left"></i></a></div><!-- Types--><div class="pub-modal_types"><h6>内容类型</h6><ul class="pub-modal_types-list"><li class="pub-modal_types-active" data-type="all" id="allID"><h4>所有类型</h4></li></ul></div><!-- Subjects--><div class="pub-modal_subjects hidden-sm hidden-xs"><h6>科目</h6><ul class="pub-modal_subjects-list"></ul></div></div></div><div class="pub-modal_right"><div class="pub-modal_control hidden-lg hidden-md"><span class="pub-modal_control-text">出版物：所有类型</span><a class="pub-modal_back" href="#" title="返回键"><i class="icon-angle-left"></i></a></div><!--div.pub-modal_right-cover-gallery.hidden-lg.hidden-md//a(href="/coverGallery") Browse Our Cover Art Gallery
+--><!-- Publications list--><!-- 'pub-modal_right--inner' adds styling required for IE--><div class="pub-modal_right--inner"><div class="pub-content"></div></div></div></div></div><!-- The widget data--><input id="ajaxUrl" name="ajaxUrl" type="hidden" value="/pb/widgets/achs-publication-list?widgetId=cabcb15c-6f7a-494b-a19c-eba4fafaee5c&amp;pbContext=%3Bwgroup%3Astring%3AACHS+website+Group%3BsubPage%3Astring%3AArticles+List%3BpageGroup%3Astring%3AEditor+Choice%3Bwebsite%3Awebsite%3Aacspubs&amp;key=46d2b5abf06a8bca4c298de04f1345780&amp;ajaxRequest=true"/><input name="pubModalData" type="hidden" value=""/></div></div></header><main class="content editorschoice"><div class="ajcHeader"><div class="container container_scaled-down"><div class="row"><div class="col-xs-12"><div class="ajcHeader_left pull-left"><!--<style>
+ .niHeader_getEAlerts{
+     display:none !important;
+ }    
+</style>--><h1> ACS 编辑之选</h1><h6>描述：</h6><div class="ajcHeader_text">每天将从任何 ACS 期刊中选择一篇新的同行评审研究文章免费提供；这些文章的选择基于来自世界各地的 ACS 期刊科学编辑的推荐。作为对我们全球研究人员社区的一项服务，下面列出的文章可在有限的时间内免费阅读。</div><ul><li><a href="/page/policy/editorchoice/index.html" title="">关于 ACS 编辑选择</a></li></ul><!-- Go to www.addthis.com/dashboard to customize your tools --><script defer="defer" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-4faab26f2cff13a7" type="text/javascript"></script><div class="share"><div class="share_button"><span class="share__label">分享</span><a aria-label="share button" class="share__ctrl" data-db-switch="icon-close_thin" data-db-target-for="5423a74c-bbd8-47b1-9f43-99423ee72e5c" href="#"><i aria-hidden="true" class="icon-Icon_Share"></i></a> </div><div class="pb-dropzone" data-pb-dropzone="ShareDropzone1" title="分享Dropzone1"></div><div class="pb-dropzone" data-pb-dropzone="ShareDropzone2" title="分享Dropzone2"></div><div class="share__block dropBlock__holder fixed" data-db-target-of="5423a74c-bbd8-47b1-9f43-99423ee72e5c" id="5423a74c-bbd8-47b1-9f43-99423ee72e5c_Pop"><div class="pb-dropzone" data-pb-dropzone="shareBlock" title="共享块"></div><span class="sr-only">分享</span><ul class="rlist w-slide--list addthis addthis_toolbox addthis_default_style addthis_32x32_style"><li> <a class="addthis_button_facebook" role="link"><i aria-hidden="true" class="at-icon-wrapper icon-facebook"></i>Facebook</a></li><li> <a class="addthis_button_twitter" role="link"><i aria-hidden="true" class="at-icon-wrapper icon-twitter"></i>推特</a></li><li><a class="addthis_button_wechat" role="link"><i aria-hidden="true" class="at-icon-wrapper icon-wechat"></i>微信</a></li><li><a class="addthis_button_linkedin" role="link"><i aria-hidden="true" class="at-icon-wrapper icon-linkedin"></i>链接在</a></li><li><a class="addthis_button_reddit" role="link"><i aria-hidden="true" class="at-icon-wrapper icon-reddit"></i>红迪网</a></li><li><a class="addthis_button_email" role="link"><i aria-hidden="true" class="at-icon-wrapper icon-envelope-o"></i>电子邮件</a></li></ul></div></div></div><div class="ajcHeader_right pull-right"><img alt="" id="EcLogo" src="/pb-assets/images/programsLogos/OA_Icons_Ec-1612971054143.svg"><div class="ajcHeader_external-alert-dropzone hidden-lg hidden-md"><div class="external-alerts-management"><input class="pub-type" name="pub-type" type="hidden"/><input class="is-enabled" name="is-enabled" type="hidden" value="true"/><input class="is-authenticated" name="is-authenticated" type="hidden" value="false"/><!-- TODO: comment out below line:--><!--input.acs-id(type="hidden" name="acs-id" value="31838729")--><input class="pub-code" name="pub-code" type="hidden" value="editor_choice"/><input class="linkout-url" name="linkout-url" type="hidden" value="https://preferences.acs.org/journals"/><button class="ealerts-toggle-btn hidden" data-target="#ealertsModal" data-toggle="modal"></button> <a class="button_primary_2 niHeader_getEAlerts jhHeader_sub_info"><i class="icon-send"></i><i class="icon-envelope"></i><i class="icon-check"></i><span class="ealerts-btn-text">获取电子警报</span><i aria-hidden="true" aria-label="close" class="icon-close"></i></a><div class="ux-modal-container"><div aria-atomic="true" aria-live="polite" class="modal" id="ealertsModal" style="display: none;"><div class="modal__dialog"><div class="modal__body"><iframe class="ealerts-frame" src=""></iframe></div></div></div></div><input id="ealertsModalSrc" type="hidden" value="https://preferences.acs.org/editor_choice?ifr=1"/></div></div><div class="hidden-xs hidden-sm"><ul class="test"></ul></div><div class="ajcHeader_about-flex"><div class="ajcHeader_about-meta"><span>最新文章</span><span>2023 年 3 月 26 日</span></div></div><div class="ajcHeader_external-alert-dropzone hidden-sm hidden-xs"><div class="external-alerts-management"><input class="pub-type" name="pub-type" type="hidden"/><input class="is-enabled" name="is-enabled" type="hidden" value="true"/><input class="is-authenticated" name="is-authenticated" type="hidden" value="false"/><!-- TODO: comment out below line:--><!--input.acs-id(type="hidden" name="acs-id" value="31838729")--><input class="pub-code" name="pub-code" type="hidden" value="editor_choice"/><input class="linkout-url" name="linkout-url" type="hidden" value="https://preferences.acs.org/journals"/><button class="ealerts-toggle-btn hidden" data-target="#ealertsModal" data-toggle="modal"></button> <a class="button_primary_2 niHeader_getEAlerts jhHeader_sub_info"><i class="icon-send"></i><i class="icon-envelope"></i><i class="icon-check"></i><span class="ealerts-btn-text">获取电子警报</span><i aria-hidden="true" aria-label="close" class="icon-close"></i></a><div class="ux-modal-container"><div aria-atomic="true" aria-live="polite" class="modal" id="ealertsModal" style="display: none;"><div class="modal__dialog"><div class="modal__body"><iframe class="ealerts-frame" src=""></iframe></div></div></div></div><input id="ealertsModalSrc" type="hidden" value="https://preferences.acs.org/editor_choice?ifr=1"/></div></div></img></div></div></div></div></div><div class="container container_scaled-down"><div class="row"><div class="col-xs-12"><div class="ajcHeader_divider"></div></div></div></div><div class="container container_scaled-down"><div class="multi-search" id="e8057901-26e5-4daa-b3fb-6797cd1cf388" name="UX3MultiSearchWidget"><form action="" autocomplete="off" class="multi-search_form" method="get"><ul class="rlist--inline"><li id="sortByID"><label>排序方式：</label><select class="sort-by-select" name="sortBy"><option selected="true" value="EditorsChoiceDate">日期</option><option value="downloaded">最常阅读</option><option value="cited">引用次数最多</option></select></li><li><label>出版物：</label><select class="publication-select" name="filter"><option value="">所有期刊</option><option value="aastgj">ACS农业科技</option><option value="aabmcb">ACS应用生物材料</option><option value="aaembp">ACS应用电子材料</option><option value="aaemcq">ACS应用能源材料</option><option value="aamick">ACS 应用材料与界面</option><option value="aanmf6">ACS应用纳米材料</option><option value="aaoma6">ACS应用光学材料</option><option value="aapmcd">ACS应用高分子材料</option><option value="abmcb8">ACS Bio &amp; Med Chem Au</option><option value="abseba"> ACS 生物材料科学与工程</option><option value="accacs">ACS催化</option><option value="acbcct">美国化学会化学生物学</option><option value="achsc5">ACS 化学健康与安全</option><option value="acncdm">ACS化学神经科学</option><option value="acsccc">ACS组合科学</option><option value="aeecco">ACS 环境与技术工程</option><option value="aewcaa">ACS ES&amp;T水</option><option value="aesccq">ACS地球与空间化学</option><option value="aelccp">ACS能源快报</option><option value="aeacb3">ACS工程金</option><option value="aeacc4">ACS 环境金</option><option value="afsthl">ACS食品科技</option><option value="aidcbc">ACS 传染病</option><option value="amlccd">ACS宏字母</option><option value="amacgu">ACS材料金</option><option value="amlcef">ACS材料快报</option><option value="amachv">ACS 测量科学 Au</option><option value="amclct"> ACS 药物化学快报</option><option value="ancac3">ACS纳米</option><option value="anaccx">ACS纳米科学金</option><option value="acsodf">ACS欧米茄</option><option value="aoiab5">ACS 有机和无机金</option><option value="aptsfn">ACS 药理学与转化科学</option><option value="apchd5">ACS光子学</option><option value="apcach">ACS 物理化学金</option><option value="apaccd">ACS 聚合物 Au</option><option value="ascefj"> ACS 传感器</option><option value="ascecg">ACS 可持续化学与工程</option><option value="asbcd6">美国化学会合成生物学</option><option value="achre4">化学研究报告</option><option value="amrcda">材料研究报告</option><option value="ancham">分析化学</option><option value="bichaw">生物化学</option><option value="bcches">生物共轭化学</option><option value="bomaf6">生物大分子</option><option value="cbihbp">化学与生物医学成像</option><option value="crtoec">毒理学化学研究</option><option value="chreay">化学评论</option><option value="cmatex">材料化学</option><option value="cgdefu">晶体生长与设计</option><option value="enfuem">能源与燃料</option><option value="esthag">环境科学与技术</option><option value="estlcu">环境科技快报</option><option value="iecred">工业与工程化学研究</option><option value="inocaj">无机化学</option><option value="jaaucr">江淮金</option><option value="jafcau">农业与食品化学杂志</option><option value="jceaax">化学与工程数据杂志</option><option value="jceda8">化学教育杂志</option><option value="jcisd8">化学信息与建模杂志</option><option value="jctcce">化学理论与计算杂志</option><option value="jmcmar">药物化学杂志</option><option value="jnprdf">天然产物杂志</option><option value="jprobs">蛋白质组研究杂志</option><option value="jacsat">美国化学会杂志</option><option value="jamsef">美国质谱学会杂志</option><option value="langd5">朗缪尔</option><option value="mamobx">大分子</option><option value="mpohbp">分子药剂学</option><option value="nalefd">纳米快报</option><option value="orlef7">有机快报</option><option value="oprdfk">有机工艺研发</option><option value="orgnd7">有机金属</option><option value="pcrhej">精密化学</option><option value="joceah">有机化学杂志</option><option value="jpcafh">物理化学杂志A</option><option value="jpcbfk">物理化学杂志B</option><option value="jpccck">物理化学杂志C</option><option value="jpclcd">物理化学通讯杂志</option></select></li><li><input name="currentPage" type="hidden" value="0"/><input name="lastPage" type="hidden" value="169"/><div class="simple-pagination"><a class="simple-pagination_next" href="#" id="top-nextID"><span>下一个</span><i class="icon-angle-right"></i></a></div></li></ul></form><div class="issue-item clearfix"><div class="issue-item_img"><img alt="文章图" class="lazy" data-src="/cms/10.1021/acs.jpcc.1c10156/asset/images/medium/jp1c10156_0014.gif"/><noscript><img alt="文章图" src="/cms/10.1021/acs.jpcc.1c10156/asset/images/medium/jp1c10156_0014.gif"/></noscript><div class="issue-item_jour-logo"> <a href="/journal/jpccck" title="物理化学杂志C"><img alt="物理化学杂志C" class="lazy" data-src="/cms/10.1021/jpccck/asset/title.png"/></a> <noscript><img alt="物理化学杂志C" src="/cms/10.1021/jpccck/asset/title.png"/></noscript></div></div><div class="issue-item_metadata"><h5 class="issue-item_title"><a href="/doi/10.1021/acs.jpcc.1c10156" title="">系统工程增强光电化学CO <sub>2</sub>还原</a></h5><ul class="rlist--inline loa mobile-authors issue-item_loa" title="作者名单">阚淼<span class="comma-separator">、</span>王启昊<span class="comma-separator">、</span>郝舒亚<span class="comma-separator">、</span>关安祥<span class="comma-separator">、</span>陈阳申<span class="comma-separator">、</span>张权<span class="comma-separator">、</span>韩清<span class="comma-separator">、</span>郑庚峰<strong>*</strong> <span class="comma-separator"></span></ul><div class="issue-item_info"><div class="issue-item_info_list"> <span class="issue-item_jour-name"><i>J.物理学。化学。 C</i></span> <span class="issue-item_yearpubdate"><span>2022</span></span> <span class="issue-item_vol-num">126,</span> <span class="issue-item_issue-num">4,</span> <span class="issue-item_page-range">1689-1700</span> <span class="issue-item_type">（文章）</span> </div><div class="issue-item_access-icon hidden-sm hidden-xs hidden-md"><div class="issue-item-open-access"><div class="issue-item-editor-choice"> <a href="/page/policy/editorchoice/index.html"><img alt="ACS 编辑选择奖" src="/pb-assets/images/programsLogos/OA_Icons_Ec-1612971054143.svg"/><span>ACS 编辑之选</span></a></div></div></div><span class="issue-item_pubdate"><span><span class="pub-date epub-date">出版日期</span><span class="web-text">（网络）</span> <span class="date-separator">：</span> <span class="pub-date-value">2022 年 1 月 20 日</span></span></span><div class="issue-item_access-icon hidden-lg"><div class="issue-item-open-access"><div class="issue-item-editor-choice"> <a href="/page/policy/editorchoice/index.html"><img alt="ACS 编辑选择奖" src="/pb-assets/images/programsLogos/OA_Icons_Ec-1612971054143.svg"/><span>ACS 编辑之选</span></a></div></div></div></div><div class="issue-item_footer"><ul class="issue-item_buttons-list"><li><a href="/doi/abs/10.1021/acs.jpcc.1c10156" title="抽象的"><i class="icon-file-o"></i><span>抽象的</span></a></li><li> <a href="/doi/full/10.1021/acs.jpcc.1c10156" title="全文"><i class="icon-file-text-o"></i><span>全文</span></a></li><li><a href="/doi/pdf/10.1021/acs.jpcc.1c10156" title="PDF"><i class="icon-file-pdf-o"></i><span>PDF</span></a></li></ul><div class="accordion"><a class="accordion__control" href="#" title="预览摘要"><i class="icon-angle-down"></i><span>抽象的</span></a><div class="accordion__content"><p>光电化学二氧化碳还原反应 (PEC-CO2RR) 使我们能够利用光敏材料将太阳能转化为化学能。基于半导体、等离子体辅助和染料敏化的系统已在 PEC-CO2RR 中得到广泛研究。除了材料科学的显着进步外，还有望实现满足研究发现和工业应用需求的新系统。在这篇 Perspective 中，我们总结了 PEC-CO2RR 领域的最新进展，重点是通过匹配光电子通量、电荷转移速率和传质速率来提高效率。基于最先进的 PEC-CO2RR 原理，提出了光电极制造、反应器设计、电解质优化和膜选择等系统工程策略的新设计，以提高 PEC-CO2RR 的选择性和稳定性。 </p></div></div></div></div></div><div class="issue-item clearfix"><div class="issue-item_img"><img alt="文章图" class="lazy" data-src="/cms/10.1021/acsomega.2c05546/asset/images/medium/ao2c05546_0007.gif"/><noscript><img alt="文章图" src="/cms/10.1021/acsomega.2c05546/asset/images/medium/ao2c05546_0007.gif"/></noscript><div class="issue-item_jour-logo"> <a href="/journal/acsodf" title="ACS欧米茄"><img alt="ACS欧米茄" class="lazy" data-src="/cms/10.1021/acsomega/asset/title.png"/></a> <noscript><img alt="ACS欧米茄" src="/cms/10.1021/acsomega/asset/title.png"/></noscript></div></div><div class="issue-item_metadata"><h5 class="issue-item_title"><a href="/doi/10.1021/acsomega.2c05546" title="">机器学习 C-N 偶联：通用反应产率预测的障碍</a></h5><ul class="rlist--inline loa mobile-authors issue-item_loa" title="作者名单">Martin Fitzner <span class="comma-separator">、</span> Georg Wuitschik <strong>*</strong> <span class="comma-separator">、</span> Raffael Koller <span class="comma-separator">、</span> Jean-Michel Adam<span class="comma-separator">和</span>Torsten Schindler <span class="comma-separator"></span></ul><div class="issue-item_info"><div class="issue-item_info_list"> <span class="issue-item_issue-num">ACS</span> <span class="issue-item_jour-name"><i>Omega</i></span> <span class="issue-item_yearpubdate"><span>2023</span></span> <span class="issue-item_vol-num">8、3、3017-3025</span> <span class="issue-item_type">（文章</span><span class="issue-item_page-range">）</span> </div><div class="issue-item_access-icon hidden-sm hidden-xs hidden-md"><div class="issue-item-open-access"><div class="issue-item-editor-choice"> <a href="/page/policy/editorchoice/index.html"><img alt="ACS 编辑选择奖" src="/pb-assets/images/programsLogos/OA_Icons_Ec-1612971054143.svg"/><span>ACS 编辑之选</span></a></div><div class="issue-item-author-choice"><a href="https://acsopenscience.org/open-access/licensing-options/"><img alt="美国化学会作者选择" src="/pb-assets/images/programsLogos/OA_Icons_Ac-1612971054130.svg"/><span>美国化学会作者选择</span></a></div></div></div><span class="issue-item_pubdate"><span><span class="pub-date epub-date">出版日期</span><span class="web-text">（网络）</span> <span class="date-separator">：</span> <span class="pub-date-value">2023 年 1 月 11 日</span></span></span><div class="issue-item_access-icon hidden-lg"><div class="issue-item-open-access"><div class="issue-item-editor-choice"> <a href="/page/policy/editorchoice/index.html"><img alt="ACS 编辑选择奖" src="/pb-assets/images/programsLogos/OA_Icons_Ec-1612971054143.svg"/><span>ACS 编辑之选</span></a></div><div class="issue-item-author-choice"><a href="https://acsopenscience.org/open-access/licensing-options/"><img alt="美国化学会作者选择" src="/pb-assets/images/programsLogos/OA_Icons_Ac-1612971054130.svg"/><span>美国化学会作者选择</span></a></div></div></div></div><div class="issue-item_footer"><ul class="issue-item_buttons-list"><li><a href="/doi/abs/10.1021/acsomega.2c05546" title="抽象的"><i class="icon-file-o"></i><span>抽象的</span></a></li><li> <a href="/doi/full/10.1021/acsomega.2c05546" title="全文"><i class="icon-file-text-o"></i><span>全文</span></a></li><li><a href="/doi/pdf/10.1021/acsomega.2c05546" title="PDF"><i class="icon-file-pdf-o"></i><span>PDF</span></a></li></ul><div class="accordion"><a class="accordion__control" href="#" title="预览摘要"><i class="icon-angle-down"></i><span>抽象的</span></a><div class="accordion__content"><p>Pd 催化的 C-N 偶联在学术界和工业界很常见。尽管它们很重要，但例如，找到导致高产率的合适反应条件仍然是一项具有挑战性且耗时的任务，通常需要在多组条件下进行筛选。为了帮助在广阔的试剂组合空间中选择有前途的反应条件，机器学习是一种很有前途的新兴技术。在这项工作中，我们评估是否可以从化学反应数据库中预测 C-N 偶联的反应产率。我们在具有挑战性的数据拆分和专用实验测试集上测试模型的普遍性。我们发现，如果不保留训练集所代表的化学空间，则模型表现良好。然而，即使对于相同类型的简单反应，适用性域也会很快离开，例如，存在于我们的平板测试集中。结果表明，可以从算法方面预测新反应的产率，但在实践中受到可用数据的阻碍。最重要的是，需要更多涵盖试剂多样性的数据才能对反应产率进行通用预测。我们的研究结果还暴露了该领域的一个挑战，因为即使考虑到具有挑战性的拆分，基于文献数据和从相同文献数据中拆分出来的测试集来判断模型似乎也极具欺骗性。 </p></div></div></div></div></div><div class="issue-item clearfix"><div class="issue-item_img"><img alt="文章图" class="lazy" data-src="/cms/10.1021/acs.orglett.3c00251/asset/images/medium/ol3c00251_0007.gif"/><noscript><img alt="文章图" src="/cms/10.1021/acs.orglett.3c00251/asset/images/medium/ol3c00251_0007.gif"/></noscript><div class="issue-item_jour-logo"> <a href="/journal/orlef7" title="有机快报"><img alt="有机快报" class="lazy" data-src="/cms/10.1021/orlef7/asset/title.png"/></a><noscript><img alt="有机快报" src="/cms/10.1021/orlef7/asset/title.png"/></noscript></div></div><div class="issue-item_metadata"><h5 class="issue-item_title"><a href="/doi/10.1021/acs.orglett.3c00251" title="">钯催化 [3 + 2] 芳族酰胺与马来酰亚胺通过双 C-H 活化环化</a></h5><ul class="rlist--inline loa mobile-authors issue-item_loa" title="作者名单">Gouranga Naskar<span class="comma-separator">和</span>Masilamani Jeganmohan <strong>*</strong> <span class="comma-separator"></span></ul><div class="issue-item_info"><div class="issue-item_info_list"><span class="issue-item_jour-name"><i>组织。莱特。</i></span> <span class="issue-item_yearpubdate"><span>2023</span></span> <span class="issue-item_type">（文章）</span> </div><div class="issue-item_access-icon hidden-sm hidden-xs hidden-md"><div class="issue-item-open-access"><div class="issue-item-editor-choice"> <a href="/page/policy/editorchoice/index.html"><img alt="ACS 编辑选择奖" src="/pb-assets/images/programsLogos/OA_Icons_Ec-1612971054143.svg"/><span>ACS 编辑之选</span></a></div></div></div><span class="issue-item_pubdate"><span><span class="pub-date epub-date">出版日期</span><span class="web-text">（网络）</span> <span class="date-separator">：</span> <span class="pub-date-value">2023 年 3 月 26 日</span></span></span><span class="issue-item_pubdate"><span>ACS 编辑选择日期</span><span class="date-separator">：</span> 2023 年 3 月 26 日</span><div class="issue-item_access-icon hidden-lg"><div class="issue-item-open-access"><div class="issue-item-editor-choice"> <a href="/page/policy/editorchoice/index.html"><img alt="ACS 编辑选择奖" src="/pb-assets/images/programsLogos/OA_Icons_Ec-1612971054143.svg"/><span>ACS 编辑之选</span></a></div></div></div></div><div class="issue-item_footer"><ul class="issue-item_buttons-list"><li> <a href="/doi/abs/10.1021/acs.orglett.3c00251" title="抽象的"><i class="icon-file-o"></i><span>抽象的</span></a></li><li><a href="/doi/full/10.1021/acs.orglett.3c00251" title="全文"><i class="icon-file-text-o"></i><span>全文</span></a></li><li><a href="/doi/pdf/10.1021/acs.orglett.3c00251" title="PDF"><i class="icon-file-pdf-o"></i><span>PDF</span></a></li></ul><div class="accordion"><a class="accordion__control" href="#" title="预览摘要"><i class="icon-angle-down"></i><span>抽象的</span></a><div class="accordion__content"><p>报道了钯催化的 [3 + 2] 取代芳族酰胺与马来酰亚胺的环化反应，通过弱羰基螯合以良好至中等收率提供三环杂环分子。该反应通过双 C-H 键激活进行，其中第一个 C-H 激活选择性地发生在苄基位置，然后在间位发生第二个 C-H 键激活以提供五元环。外部配体 Ac-Gly-OH 已被用于在该协议中取得成功。已经为 [3 + 2] 环化反应提出了一个似是而非的反应机制。 </p></div></div></div></div></div><div class="issue-item clearfix"><div class="issue-item_img"><img alt="文章图" class="lazy" data-src="/cms/10.1021/acs.nanolett.2c03138/asset/images/medium/nl2c03138_0006.gif"/><noscript><img alt="文章图" src="/cms/10.1021/acs.nanolett.2c03138/asset/images/medium/nl2c03138_0006.gif"/></noscript><div class="issue-item_jour-logo"> <a href="/journal/nalefd" title="纳米快报"><img alt="纳米快报" class="lazy" data-src="/cms/10.1021/nalefd/asset/title.png"/></a><noscript><img alt="纳米快报" src="/cms/10.1021/nalefd/asset/title.png"/></noscript></div></div><div class="issue-item_metadata"><h5 class="issue-item_title"> <a href="/doi/10.1021/acs.nanolett.2c03138" title="">I–III–VI 量子点和衍生物：发光二极管的设计、合成和特性</a></h5><ul class="rlist--inline loa mobile-authors issue-item_loa" title="作者名单">杨林祥<span class="comma-separator">、</span>张帅<strong>*</strong> <span class="comma-separator">、</span>徐博<span class="comma-separator">、</span>蒋江源<span class="comma-separator">、</span>蔡博<span class="comma-separator">、</span>吕欣怡<span class="comma-separator">、</span>邹友生<span class="comma-separator">、</span>范志勇<span class="comma-separator">、</span>杨喜孙<strong>*</strong> <span class="comma-separator">、</span>曾海波<strong>*</strong> <span class="comma-separator"></span></ul><div class="issue-item_info"><div class="issue-item_info_list"><span class="issue-item_jour-name"><i>纳米莱特。</i></span> <span class="issue-item_yearpubdate"><span>2023</span></span> <span class="issue-item_type">（文章）</span> </div><div class="issue-item_access-icon hidden-sm hidden-xs hidden-md"><div class="issue-item-open-access"><div class="issue-item-editor-choice"> <a href="/page/policy/editorchoice/index.html"><img alt="ACS 编辑选择奖" src="/pb-assets/images/programsLogos/OA_Icons_Ec-1612971054143.svg"/><span>ACS 编辑之选</span></a></div></div></div><span class="issue-item_pubdate"><span><span class="pub-date epub-date">出版日期</span><span class="web-text">（网络）</span> <span class="date-separator">：</span> <span class="pub-date-value">2023 年 3 月 25 日</span></span></span><span class="issue-item_pubdate"><span>ACS 编辑选择日期</span><span class="date-separator">：</span> 2023 年 3 月 25 日</span><div class="issue-item_access-icon hidden-lg"><div class="issue-item-open-access"><div class="issue-item-editor-choice"> <a href="/page/policy/editorchoice/index.html"><img alt="ACS 编辑选择奖" src="/pb-assets/images/programsLogos/OA_Icons_Ec-1612971054143.svg"/><span>ACS 编辑之选</span></a></div></div></div></div><div class="issue-item_footer"><ul class="issue-item_buttons-list"><li> <a href="/doi/abs/10.1021/acs.nanolett.2c03138" title="抽象的"><i class="icon-file-o"></i><span>抽象的</span></a></li><li><a href="/doi/full/10.1021/acs.nanolett.2c03138" title="全文"><i class="icon-file-text-o"></i><span>全文</span></a></li><li><a href="/doi/pdf/10.1021/acs.nanolett.2c03138" title="PDF"><i class="icon-file-pdf-o"></i><span>PDF</span></a></li></ul><div class="accordion"><a class="accordion__control" href="#" title="预览摘要"><i class="icon-angle-down"></i><span>抽象的</span></a><div class="accordion__content"><p>量子点(Quantum dots, QDs)以其出色的发光效率和高色纯度，成为未来柔性超高清显示、光信息互联网、生物成像等领域重要的前沿发光材料。 I-III-VI量子点及其衍生物具有带隙依赖性、可见光全覆盖、高效率、稳定性好和无毒等特点，有望成为替代传统Cd和Pb基环保材料的理想候选材料量子点。特别是，它们的组成灵活性非常有利于精确控制能带结构和微观结构。此外，量子点发光二极管（QLED）在单色显示和白光照明方面表现出优越的前景。本综述总结了 I-III-VI 量子点的最新进展及其在 LED 中的应用。首先，基于它们的电子能带结构特征阐明了发光机制。其次，围绕I-III-VI量子点的最新进展、制备机理、光物理性质调控等，总结了相应的应用进展，特别是在发光二极管中的应用进展。最后，我们对总体现状和挑战提出了促进 QD 和 QLED 发展的性能改进策略，指明了该领域的未来方向。 </p></div></div></div></div></div><div class="issue-item clearfix"><div class="issue-item_img"><img alt="文章图" class="lazy" data-src="/cms/10.1021/acsabm.3c00029/asset/images/medium/mt3c00029_0007.gif"/><noscript><img alt="文章图" src="/cms/10.1021/acsabm.3c00029/asset/images/medium/mt3c00029_0007.gif"/></noscript><div class="issue-item_jour-logo"> <a href="/journal/aabmcb" title="ACS应用生物材料"><img alt="ACS应用生物材料" class="lazy" data-src="/cms/10.1021/acsabm/asset/title.png"/></a> <noscript><img alt="ACS应用生物材料" src="/cms/10.1021/acsabm/asset/title.png"/></noscript></div></div><div class="issue-item_metadata"><h5 class="issue-item_title"> <a href="/doi/10.1021/acsabm.3c00029" title="">Nano-On-Nano：具有高细胞摄取效率的响应性纳米底物介导的脂质体递送</a></h5><ul class="rlist--inline loa mobile-authors issue-item_loa" title="作者名单">Bhaskarchand Gautam <span class="comma-separator">、</span> Chun-Hao Luo <span class="comma-separator">、</span> Hua-De Gao <span class="comma-separator">、</span> Jye-Chian Hsiao <span class="comma-separator">、</span> Hsian-Rong Tseng <strong>*</strong> <span class="comma-separator">、</span> Hsien-Ming Lee <strong>*</strong><span class="comma-separator">和</span>Hsiao-hua Yu <strong>*</strong> <span class="comma-separator"></span></ul><div class="issue-item_info"><div class="issue-item_info_list"> <span class="issue-item_jour-name"><i>ACS 申请生物材料。</i></span> <span class="issue-item_yearpubdate"><span>2023</span></span> <span class="issue-item_type">（文章）</span> </div><div class="issue-item_access-icon hidden-sm hidden-xs hidden-md"><div class="issue-item-open-access"><div class="issue-item-editor-choice"> <a href="/page/policy/editorchoice/index.html"><img alt="ACS 编辑选择奖" src="/pb-assets/images/programsLogos/OA_Icons_Ec-1612971054143.svg"/><span>ACS 编辑之选</span></a></div></div></div><span class="issue-item_pubdate"><span><span class="pub-date epub-date">出版日期</span><span class="web-text">（网络）</span> <span class="date-separator">：</span> <span class="pub-date-value">2023 年 3 月 24 日</span></span></span><span class="issue-item_pubdate"><span>ACS 编辑选择日期</span><span class="date-separator">：</span> 2023 年 3 月 24 日</span><div class="issue-item_access-icon hidden-lg"><div class="issue-item-open-access"><div class="issue-item-editor-choice"> <a href="/page/policy/editorchoice/index.html"><img alt="ACS 编辑选择奖" src="/pb-assets/images/programsLogos/OA_Icons_Ec-1612971054143.svg"/><span>ACS 编辑之选</span></a></div></div></div></div><div class="issue-item_footer"><ul class="issue-item_buttons-list"><li><a href="/doi/abs/10.1021/acsabm.3c00029" title="抽象的"><i class="icon-file-o"></i><span>抽象的</span></a></li><li><a href="/doi/full/10.1021/acsabm.3c00029" title="全文"><i class="icon-file-text-o"></i><span>全文</span></a></li><li><a href="/doi/pdf/10.1021/acsabm.3c00029" title="PDF"><i class="icon-file-pdf-o"></i><span>PDF</span></a></li></ul><div class="accordion"><a class="accordion__control" href="#" title="预览摘要"><i class="icon-angle-down"></i><span>抽象的</span></a><div class="accordion__content"><p>以相对均匀的剂量和模式化方式将脂质体内容物有效地递送至细胞，尤其是绕过降解内吞途径，是细胞培养中的一项重要技术，并且可能对组织工程而言仍然具有挑战性。我们开发了一种“nano-on-nano”平台技术，由以下三种材料特性组成：(1) 高密度硅纳米柱，为细胞培养创造伪三维纳米环境，(2) 接枝到硅纳米柱上的热敏聚合物形成响应性纳米底物，以及 (3) 使用生物素-链霉亲和素-生物素缀合固定脂质体。工作原理是脂质体在热刺激下分离以供细胞摄取，细胞和底物之间的高局部脂质体浓度通过非内吞途径驱动细胞摄取。 Cryo-EM 图像证实脂质体附着形成脂质体弯曲的纳米柱。在热刺激下，与传统的溶液相脂质体递送相比，观察到脂质体荧光强度增加了 8 倍，表明高局部浓度以更高的效率驱动脂质体摄取。此外，初步的机制研究表明，这些脂质体被非内吞途径吸收。我们的纳米对纳米递送系统实现高效剂量均匀细胞递送的能力可以通过递送生物活性成分负载的脂质体来控制细胞行为，从而开启细胞和组织工程的独特时代。 </p></div></div></div></div></div><div class="issue-item clearfix"><div class="issue-item_img"><img alt="文章图" class="lazy" data-src="/cms/10.1021/acs.macromol.3c00108/asset/images/medium/ma3c00108_0027.gif"/><noscript><img alt="文章图" src="/cms/10.1021/acs.macromol.3c00108/asset/images/medium/ma3c00108_0027.gif"/></noscript><div class="issue-item_jour-logo"> <a href="/journal/mamobx" title="大分子"><img alt="大分子" class="lazy" data-src="/cms/10.1021/mamobx/asset/title.png"/></a> <noscript><img alt="大分子" src="/cms/10.1021/mamobx/asset/title.png"/></noscript></div></div><div class="issue-item_metadata"><h5 class="issue-item_title"><a href="/doi/10.1021/acs.macromol.3c00108" title="">聚合物胶体：当前挑战、新兴应用和新发展</a></h5><ul class="rlist--inline loa mobile-authors issue-item_loa" title="作者名单">Miren Aguirre <strong>*</strong> <span class="comma-separator">、</span> Nicholas Ballard <span class="comma-separator">、</span> Edurne Gonzalez <span class="comma-separator">、</span> <span class="comma-separator">Shaghayegh</span> Hamzehlou、Haritz Sardon <span class="comma-separator">、</span> Marcelo Calderon <span class="comma-separator">、</span> Maria Paulis <span class="comma-separator">、</span> Radmila Tomovska <span class="comma-separator">、</span> Damien Dupin <span class="comma-separator">、</span> Ren H. Bean <span class="comma-separator">、</span> Timothy E. Long <span class="comma-separator">、</span> Jose R. Leiza<span class="comma-separator">和</span>Jose M. Asua <span class="comma-separator"></span></ul><div class="issue-item_info"><div class="issue-item_info_list"><span class="issue-item_jour-name"><i>大分子</i></span><span class="issue-item_yearpubdate"><span>2023</span></span> <span class="issue-item_type">（文章）</span> </div><div class="issue-item_access-icon hidden-sm hidden-xs hidden-md"><div class="issue-item-open-access"><div class="issue-item-editor-choice"> <a href="/page/policy/editorchoice/index.html"><img alt="ACS 编辑选择奖" src="/pb-assets/images/programsLogos/OA_Icons_Ec-1612971054143.svg"/><span>ACS 编辑之选</span></a></div><div class="issue-item-author-choice"><a href="https://acsopenscience.org/open-access/licensing-options/"><img alt="美国化学会作者选择" src="/pb-assets/images/programsLogos/OA_Icons_Ac-1612971054130.svg"/><span>美国化学会作者选择</span></a></div></div></div><span class="issue-item_pubdate"><span><span class="pub-date epub-date">出版日期</span><span class="web-text">（网络）</span> <span class="date-separator">：</span> <span class="pub-date-value">2023 年 3 月 23 日</span></span></span><span class="issue-item_pubdate"><span>ACS 编辑选择日期</span><span class="date-separator">：</span> 2023 年 3 月 23 日</span><div class="issue-item_access-icon hidden-lg"><div class="issue-item-open-access"><div class="issue-item-editor-choice"> <a href="/page/policy/editorchoice/index.html"><img alt="ACS 编辑选择奖" src="/pb-assets/images/programsLogos/OA_Icons_Ec-1612971054143.svg"/><span>ACS 编辑之选</span></a></div><div class="issue-item-author-choice"><a href="https://acsopenscience.org/open-access/licensing-options/"><img alt="美国化学会作者选择" src="/pb-assets/images/programsLogos/OA_Icons_Ac-1612971054130.svg"/><span>美国化学会作者选择</span></a></div></div></div></div><div class="issue-item_footer"><ul class="issue-item_buttons-list"><li> <a href="/doi/abs/10.1021/acs.macromol.3c00108" title="抽象的"><i class="icon-file-o"></i><span>抽象的</span></a></li><li><a href="/doi/full/10.1021/acs.macromol.3c00108" title="全文"><i class="icon-file-text-o"></i><span>全文</span></a></li><li><a href="/doi/pdf/10.1021/acs.macromol.3c00108" title="PDF"><i class="icon-file-pdf-o"></i><span>PDF</span></a></li></ul><div class="accordion"><a class="accordion__control" href="#" title="预览摘要"><i class="icon-angle-down"></i><span>抽象的</span></a><div class="accordion__content"><p>聚合物胶体是一种复杂的材料，具有广泛应用的潜力。它们在商业用途上持续增长的主要原因之一是通常合成它们的水基乳液聚合工艺。该技术不仅从工业角度来看非常高效，而且用途极为广泛，可以大规模生产具有可控性能的胶体颗粒。从这个角度来看，我们试图强调聚合物胶体合成和使用中的核心挑战，包括现有和新兴应用。我们首先解决当前聚合物胶体生产和应用中的挑战，特别关注向可持续原料的过渡，并减少其主要商业应用对环境的影响。稍后，我们重点介绍了允许设计新型聚合物胶体并将其应用于新兴应用领域的特性。最后，我们介绍了最近在非常规加工技术中使用独特胶体性质的方法。 </p></div></div></div></div></div><div class="issue-item clearfix"><div class="issue-item_img"><img alt="文章图" class="lazy" data-src="/cms/10.1021/acsami.2c23269/asset/images/medium/am2c23269_0010.gif"/><noscript><img alt="文章图" src="/cms/10.1021/acsami.2c23269/asset/images/medium/am2c23269_0010.gif"/></noscript><div class="issue-item_jour-logo"> <a href="/journal/aamick" title="ACS 应用材料与界面"><img alt="ACS 应用材料与界面" class="lazy" data-src="/cms/10.1021/aamick/asset/title.png"/></a> <noscript><img alt="ACS 应用材料与界面" src="/cms/10.1021/aamick/asset/title.png"/></noscript></div></div><div class="issue-item_metadata"><h5 class="issue-item_title"><a href="/doi/10.1021/acsami.2c23269" title="">工程 PEDOT：具有纹理表面的 PSS/PEG 纤维可实现全面的个人热管理</a></h5><ul class="rlist--inline loa mobile-authors issue-item_loa" title="作者名单">王宇航<span class="comma-separator">、</span>高春霞<span class="comma-separator">、</span>赵传云<span class="comma-separator">、</span>陈紫薇<span class="comma-separator">、</span>叶昊然<span class="comma-separator">、</span>沉铭<span class="comma-separator">、</span>高强<strong>*</strong> <span class="comma-separator">、</span>朱家登<strong>*</strong> <span class="comma-separator">、</span>陈涛<strong>*</strong> <span class="comma-separator"></span></ul><div class="issue-item_info"><div class="issue-item_info_list"> <span class="issue-item_jour-name"><i>ACS 申请母校。接口</i></span><span class="issue-item_yearpubdate"><span>2023</span></span> <span class="issue-item_type">（文章）</span> </div><div class="issue-item_access-icon hidden-sm hidden-xs hidden-md"><div class="issue-item-open-access"><div class="issue-item-editor-choice"> <a href="/page/policy/editorchoice/index.html"><img alt="ACS 编辑选择奖" src="/pb-assets/images/programsLogos/OA_Icons_Ec-1612971054143.svg"/><span>ACS 编辑之选</span></a></div></div></div><span class="issue-item_pubdate"><span><span class="pub-date epub-date">出版日期</span><span class="web-text">（网络）</span> <span class="date-separator">：</span> <span class="pub-date-value">2023 年 3 月 22 日</span></span></span><span class="issue-item_pubdate"><span>ACS 编辑选择日期</span><span class="date-separator">：</span> 2023 年 3 月 22 日</span><div class="issue-item_access-icon hidden-lg"><div class="issue-item-open-access"><div class="issue-item-editor-choice"> <a href="/page/policy/editorchoice/index.html"><img alt="ACS 编辑选择奖" src="/pb-assets/images/programsLogos/OA_Icons_Ec-1612971054143.svg"/><span>ACS 编辑之选</span></a></div></div></div></div><div class="issue-item_footer"><ul class="issue-item_buttons-list"><li><a href="/doi/abs/10.1021/acsami.2c23269" title="抽象的"><i class="icon-file-o"></i><span>抽象的</span></a></li><li><a href="/doi/full/10.1021/acsami.2c23269" title="全文"><i class="icon-file-text-o"></i><span>全文</span></a></li><li><a href="/doi/pdf/10.1021/acsami.2c23269" title="PDF"><i class="icon-file-pdf-o"></i><span>PDF</span></a></li></ul><div class="accordion"><a class="accordion__control" href="#" title="预览摘要"><i class="icon-angle-down"></i><span>抽象的</span></a><div class="accordion__content"><p>野外环境变幻莫测，极端天气事件中气温的飙升或骤降可能对人类生命构成严重威胁。将被动蒸发冷却和可控电加热结合到衣服中可以有效地保护人类免受这种恶劣环境的影响。在这项工作中，聚（3,4-乙烯二氧噻吩）：聚（苯乙烯磺酸盐）/聚（乙二醇）（PPP）纤维通过单喷嘴湿法成功制备了具有核壳结构和漂亮纹理表面的纤维。 -纺纱技术。结果表明，由于采用了新颖的制备方法和分层形貌设计，该纤维具有迷人的比表面积（184.8 m2·g–1）、电导率（50 S·cm–1）和拉伸性（>;100%）。通过简单的纺织品制造路线，PPP 纤维可以很容易地织成织物，在保持良好吸湿性的同时，具有智能纺织品所需的透气性、耐洗性和机械强度。受益于具有大比表面积的纹理结构，PPP织物表现出诱人的蒸发冷却速率。实际应用测试表明，在阳光直射下，PPP 织物的表面温度分别比商用棉和涤纶织物低 ~5.2 和 ~10.8 °C。同时，作为导电纤维，所得PPP织物可以在小功率电下发热，从而达到“冬暖夏凉”的效果。 PPP 纤维简便的制造工艺和更高的性能为智能服装和纺织品的应用以及全面的个人热管理提供了显着优势，为这些领域的未来设计开辟了新途径。 </p></div></div></div></div></div><div class="issue-item clearfix"><div class="issue-item_img"><img alt="文章图" class="lazy" data-src="/cms/10.1021/acsnano.2c10379/asset/images/medium/nn2c10379_0011.gif"/><noscript><img alt="文章图" src="/cms/10.1021/acsnano.2c10379/asset/images/medium/nn2c10379_0011.gif"/></noscript><div class="issue-item_jour-logo"> <a href="/journal/ancac3" title="ACS纳米"><img alt="ACS纳米" class="lazy" data-src="/cms/10.1021/ancac3/asset/title.png"/></a> <noscript><img alt="ACS纳米" src="/cms/10.1021/ancac3/asset/title.png"/></noscript></div></div><div class="issue-item_metadata"><h5 class="issue-item_title"><a href="/doi/10.1021/acsnano.2c10379" title="">基于适体的靶向蛋白质降解</a></h5><ul class="rlist--inline loa mobile-authors issue-item_loa" title="作者名单">Yuan Liu <span class="comma-separator">,</span> Xu Qian <span class="comma-separator">,</span> Chunyan Ran <span class="comma-separator">,</span> Longjie Li <span class="comma-separator">,</span> Ting Fu <span class="comma-separator">,</span> Dan Su <strong>*</strong> <span class="comma-separator">,</span> Sitao Xie <strong>*</strong> <span class="comma-separator">, and</span> Weihong Tan <strong>*</strong> <span class="comma-separator"></span></ul><div class="issue-item_info"><div class="issue-item_info_list"> <span class="issue-item_jour-name"><i>ACS Nano</i></span> <span class="issue-item_yearpubdate"><span>2023</span></span> <span class="issue-item_type">（文章）</span> </div><div class="issue-item_access-icon hidden-sm hidden-xs hidden-md"><div class="issue-item-open-access"><div class="issue-item-editor-choice"> <a href="/page/policy/editorchoice/index.html"><img alt="ACS 编辑选择奖" src="/pb-assets/images/programsLogos/OA_Icons_Ec-1612971054143.svg"/><span>ACS 编辑之选</span></a></div></div></div><span class="issue-item_pubdate"><span><span class="pub-date epub-date">出版日期</span><span class="web-text">（网络）</span> <span class="date-separator">：</span> <span class="pub-date-value">2023 年 3 月 21 日</span></span></span><span class="issue-item_pubdate"><span>ACS 编辑选择日期</span><span class="date-separator">：</span> 2023 年 3 月 21 日</span><div class="issue-item_access-icon hidden-lg"><div class="issue-item-open-access"><div class="issue-item-editor-choice"> <a href="/page/policy/editorchoice/index.html"><img alt="ACS 编辑选择奖" src="/pb-assets/images/programsLogos/OA_Icons_Ec-1612971054143.svg"/><span>ACS 编辑之选</span></a></div></div></div></div><div class="issue-item_footer"><ul class="issue-item_buttons-list"><li><a href="/doi/abs/10.1021/acsnano.2c10379" title="抽象的"><i class="icon-file-o"></i><span>抽象的</span></a></li><li><a href="/doi/full/10.1021/acsnano.2c10379" title="全文"><i class="icon-file-text-o"></i><span>全文</span></a></li><li><a href="/doi/pdf/10.1021/acsnano.2c10379" title="PDF"><i class="icon-file-pdf-o"></i><span>PDF</span></a></li></ul><div class="accordion"><a class="accordion__control" href="#" title="预览摘要"><i class="icon-angle-down"></i><span>抽象的</span></a><div class="accordion__content"><p>选择性去除错误折叠、聚集或异常过表达的蛋白质在维持蛋白质主导的生物过程中起着至关重要的作用。同时，异常蛋白的精准敲除离不开复杂环境中蛋白的准确识别。在这些原则的指导下，小分子或抗体通常用作开发靶向蛋白质降解 (TPD) 技术的蛋白质识别工具。的确，TPD在慢性病、罕见病、癌症研究等领域展现了巨大的前景。同时，适配体是短的RNA或DNA寡核苷酸，可以与靶蛋白结合，具有高特异性和强亲和力。因此，适体被积极用于设计和构建TPD技术。从这个角度，我们简要介绍了TPD技术目前的进展，总结了其应用面临的挑战。回顾了基于适体的 TPD 技术的最新进展，以及相应的挑战和展望。 </p></div></div></div></div></div><div class="issue-item clearfix"><div class="issue-item_img"><img alt="文章图" class="lazy" data-src="/cms/10.1021/acs.orglett.3c00447/asset/images/medium/ol3c00447_0006.gif"/><noscript><img alt="文章图" src="/cms/10.1021/acs.orglett.3c00447/asset/images/medium/ol3c00447_0006.gif"/></noscript><div class="issue-item_jour-logo"> <a href="/journal/orlef7" title="有机快报"><img alt="有机快报" class="lazy" data-src="/cms/10.1021/orlef7/asset/title.png"/></a><noscript><img alt="有机快报" src="/cms/10.1021/orlef7/asset/title.png"/></noscript></div></div><div class="issue-item_metadata"><h5 class="issue-item_title"> <a href="/doi/10.1021/acs.orglett.3c00447" title="">SuFEx 试剂通过光化学 S-F 键激活生成烷基（Het）芳基砜</a></h5><ul class="rlist--inline loa mobile-authors issue-item_loa" title="作者名单">Scott T. Shreiber<span class="comma-separator">和</span>Gary A. Molander <strong>*</strong> <span class="comma-separator"></span></ul><div class="issue-item_info"><div class="issue-item_info_list"><span class="issue-item_jour-name"><i>组织。莱特。</i></span> <span class="issue-item_yearpubdate"><span>2023</span></span> <span class="issue-item_type">（文章）</span> </div><div class="issue-item_access-icon hidden-sm hidden-xs hidden-md"><div class="issue-item-open-access"><div class="issue-item-editor-choice"> <a href="/page/policy/editorchoice/index.html"><img alt="ACS 编辑选择奖" src="/pb-assets/images/programsLogos/OA_Icons_Ec-1612971054143.svg"/><span>ACS 编辑之选</span></a></div></div></div><span class="issue-item_pubdate"><span><span class="pub-date epub-date">出版日期</span><span class="web-text">（网络）</span> <span class="date-separator">：</span> <span class="pub-date-value">2023 年 3 月 20 日</span></span></span><span class="issue-item_pubdate"><span>ACS 编辑选择日期</span><span class="date-separator">：</span> 2023 年 3 月 20 日</span><div class="issue-item_access-icon hidden-lg"><div class="issue-item-open-access"><div class="issue-item-editor-choice"> <a href="/page/policy/editorchoice/index.html"><img alt="ACS 编辑选择奖" src="/pb-assets/images/programsLogos/OA_Icons_Ec-1612971054143.svg"/><span>ACS 编辑之选</span></a></div></div></div></div><div class="issue-item_footer"><ul class="issue-item_buttons-list"><li> <a href="/doi/abs/10.1021/acs.orglett.3c00447" title="抽象的"><i class="icon-file-o"></i><span>抽象的</span></a></li><li><a href="/doi/full/10.1021/acs.orglett.3c00447" title="全文"><i class="icon-file-text-o"></i><span>全文</span></a></li><li><a href="/doi/pdf/10.1021/acs.orglett.3c00447" title="PDF"><i class="icon-file-pdf-o"></i><span>PDF</span></a></li></ul><div class="accordion"><a class="accordion__control" href="#" title="预览摘要"><i class="icon-angle-down"></i><span>抽象的</span></a><div class="accordion__content"><p>描述了可见光诱导的氟化硫交换 (SuFEx) 试剂的 S–F 键活化以生成烷基砜。该方法不含过渡金属，依赖于使用市售的商品化学品。此外，该方法首次展示了 SuFEx 试剂的光氧化还原功能化。该反应具有多种底物范围，可应用于各种芳基磺酰氟，包括活化和未活化的烯烃。 </p></div></div></div></div></div><div class="issue-item clearfix"><div class="issue-item_img"><img alt="文章图" class="lazy" data-src="/cms/10.1021/acs.organomet.3c00016/asset/images/medium/om3c00016_0009.gif"/><noscript><img alt="文章图" src="/cms/10.1021/acs.organomet.3c00016/asset/images/medium/om3c00016_0009.gif"/></noscript><div class="issue-item_jour-logo"> <a href="/journal/orgnd7" title="有机金属"><img alt="有机金属" class="lazy" data-src="/cms/10.1021/orgnd7/asset/title.png"/></a><noscript><img alt="有机金属" src="/cms/10.1021/orgnd7/asset/title.png"/></noscript></div></div><div class="issue-item_metadata"><h5 class="issue-item_title"> <a href="/doi/10.1021/acs.organomet.3c00016" title="">1,2,5-三甲基吡咯基膦：一类强供芳基膦</a></h5><ul class="rlist--inline loa mobile-authors issue-item_loa" title="作者名单">Janina A. Werra <span class="comma-separator">、</span> Klaus Wurst <span class="comma-separator">、</span> Lukas B. Wilm <span class="comma-separator">、</span> Pawel Löwe <span class="comma-separator">、</span> Maike B. Röthel<span class="comma-separator">和</span>Fabian Dielmann <strong>*</strong> <span class="comma-separator"></span></ul><div class="issue-item_info"><div class="issue-item_info_list"><span class="issue-item_jour-name"><i>有机金属</i></span><span class="issue-item_yearpubdate"><span>2023</span></span> <span class="issue-item_type">（文章）</span> </div><div class="issue-item_access-icon hidden-sm hidden-xs hidden-md"><div class="issue-item-open-access"><div class="issue-item-editor-choice"> <a href="/page/policy/editorchoice/index.html"><img alt="ACS 编辑选择奖" src="/pb-assets/images/programsLogos/OA_Icons_Ec-1612971054143.svg"/><span>ACS 编辑之选</span></a></div><div class="issue-item-author-choice"><a href="https://acsopenscience.org/open-access/licensing-options/"><img alt="美国化学会作者选择" src="/pb-assets/images/programsLogos/OA_Icons_Ac-1612971054130.svg"/><span>美国化学会作者选择</span></a></div></div></div><span class="issue-item_pubdate"><span><span class="pub-date epub-date">出版日期</span><span class="web-text">（网络）</span> <span class="date-separator">：</span> <span class="pub-date-value">2023 年 3 月 19 日</span></span></span><span class="issue-item_pubdate"><span>ACS 编辑选择日期</span><span class="date-separator">：</span> 2023 年 3 月 19 日</span><div class="issue-item_access-icon hidden-lg"><div class="issue-item-open-access"><div class="issue-item-editor-choice"> <a href="/page/policy/editorchoice/index.html"><img alt="ACS 编辑选择奖" src="/pb-assets/images/programsLogos/OA_Icons_Ec-1612971054143.svg"/><span>ACS 编辑之选</span></a></div><div class="issue-item-author-choice"><a href="https://acsopenscience.org/open-access/licensing-options/"><img alt="美国化学会作者选择" src="/pb-assets/images/programsLogos/OA_Icons_Ac-1612971054130.svg"/><span>美国化学会作者选择</span></a></div></div></div></div><div class="issue-item_footer"><ul class="issue-item_buttons-list"><li><a href="/doi/abs/10.1021/acs.organomet.3c00016" title="抽象的"><i class="icon-file-o"></i><span>抽象的</span></a></li><li><a href="/doi/full/10.1021/acs.organomet.3c00016" title="全文"><i class="icon-file-text-o"></i><span>全文</span></a></li><li><a href="/doi/pdf/10.1021/acs.organomet.3c00016" title="PDF"><i class="icon-file-pdf-o"></i><span>PDF</span></a></li></ul><div class="accordion"><a class="accordion__control" href="#" title="预览摘要"><i class="icon-angle-down"></i><span>抽象的</span></a><div class="accordion__content"><p>芳基膦是配位化学和催化中最重要的配体之一，但在需要强电子供体特性时通常不如烷基膦。在此，我们报告了 1,2,5-三甲基吡咯基膦的合成和性质，并表明它们的给电子能力可以超过烷基膦。可以从市售试剂开始，通过一锅法以多克规模制备新的膦。三(1,2,5-三甲基)吡咯基膦 P(tmp)3 是一种结晶固体，托尔曼电子参数 (TEP) 为 2055.0 cm–1，可以在空气中处理。镍 (0)、钯 (II)、金 (I) 和钌 (II) 与基于 1,2,5-三甲基吡咯基的膦的络合物已被报道，此外还对 P(tmp)3 在钌中的使用进行了初步调查-催化的烯烃复分解反应。 </p></div></div></div></div></div><div class="issue-item clearfix"><div class="issue-item_img"><img alt="文章图" class="lazy" data-src="/cms/10.1021/acsaem.3c00110/asset/images/medium/ae3c00110_0006.gif"/><noscript><img alt="文章图" src="/cms/10.1021/acsaem.3c00110/asset/images/medium/ae3c00110_0006.gif"/></noscript><div class="issue-item_jour-logo"> <a href="/journal/aaemcq" title="ACS应用能源材料"><img alt="ACS应用能源材料" class="lazy" data-src="/cms/10.1021/aaemcq/asset/title.png"/></a> <noscript><img alt="ACS应用能源材料" src="/cms/10.1021/aaemcq/asset/title.png"/></noscript></div></div><div class="issue-item_metadata"><h5 class="issue-item_title"><a href="/doi/10.1021/acsaem.3c00110" title="">通过应变工程提高 SnS 单层的热电性能</a></h5><ul class="rlist--inline loa mobile-authors issue-item_loa" title="作者名单">Raveena Gupta <span class="comma-separator">、</span> Sonali Kakkar <span class="comma-separator">、</span> Bonny Dongre <span class="comma-separator">、</span> Jesús Carrete<span class="comma-separator">和</span>Chandan Bera <strong>*</strong> <span class="comma-separator"></span></ul><div class="issue-item_info"><div class="issue-item_info_list"> <span class="issue-item_jour-name"><i>ACS 申请能源母校。</i></span> <span class="issue-item_yearpubdate"><span>2023</span></span> <span class="issue-item_type">（文章）</span> </div><div class="issue-item_access-icon hidden-sm hidden-xs hidden-md"><div class="issue-item-open-access"><div class="issue-item-editor-choice"> <a href="/page/policy/editorchoice/index.html"><img alt="ACS 编辑选择奖" src="/pb-assets/images/programsLogos/OA_Icons_Ec-1612971054143.svg"/><span>ACS 编辑之选</span></a></div></div></div><span class="issue-item_pubdate"><span><span class="pub-date epub-date">出版日期</span><span class="web-text">（网络）</span> <span class="date-separator">：</span> <span class="pub-date-value">2023 年 3 月 18 日</span></span></span><span class="issue-item_pubdate"><span>ACS 编辑选择日期</span><span class="date-separator">：</span> 2023 年 3 月 18 日</span><div class="issue-item_access-icon hidden-lg"><div class="issue-item-open-access"><div class="issue-item-editor-choice"> <a href="/page/policy/editorchoice/index.html"><img alt="ACS 编辑选择奖" src="/pb-assets/images/programsLogos/OA_Icons_Ec-1612971054143.svg"/><span>ACS 编辑之选</span></a></div></div></div></div><div class="issue-item_footer"><ul class="issue-item_buttons-list"><li><a href="/doi/abs/10.1021/acsaem.3c00110" title="抽象的"><i class="icon-file-o"></i><span>抽象的</span></a></li><li><a href="/doi/full/10.1021/acsaem.3c00110" title="全文"><i class="icon-file-text-o"></i><span>全文</span></a></li><li><a href="/doi/pdf/10.1021/acsaem.3c00110" title="PDF"><i class="icon-file-pdf-o"></i><span>PDF</span></a></li></ul><div class="accordion"><a class="accordion__control" href="#" title="预览摘要"><i class="icon-angle-down"></i><span>抽象的</span></a><div class="accordion__content"><p>纳米结构是提高热电品质因数的著名工具之一，但在调整晶格热导率时存在局限性。热电系数，包括二维材料中的晶格热导率，可以使用应变工程进一步修改，应变工程可以控制这些系统中的原子间作用力和能级。考虑到这一点，我们使用第一性原理计算和玻尔兹曼输运方程研究了 SnS 单层在单轴压缩和拉伸应变下的热电特性。弹性常数和泊松比的分析指向仅沿扶手椅或 b 方向的应变适用性。发现沿扶手椅方向的单轴可压缩和拉伸应变为 -4% 至 5% 的系统是动态稳定的。对于 p 型载流子的 1% 应变情况，预计功率因数约为 1.1 W m-1 K-2，比无应变情况高 1.8 倍。在应用最小 1% 的拉伸应变时，检测到 p 型载流子的无量纲品质因数 (ZT) 提高了约 77%，n 型载流子的品质因数相对于平衡提高了约 86%。在 600 K 时，1% 的应变可以使 ZT 增加近 3 倍。ZT 的这种增强使应变单层成为热电应用更有希望的候选者。 </p></div></div></div></div></div><div class="issue-item clearfix"><div class="issue-item_img"><img alt="文章图" class="lazy" data-src="/cms/10.1021/acsaom.2c00169/asset/images/medium/ot2c00169_0011.gif"/><noscript><img alt="文章图" src="/cms/10.1021/acsaom.2c00169/asset/images/medium/ot2c00169_0011.gif"/></noscript><div class="issue-item_jour-logo"> <a href="/journal/aaoma6" title="ACS应用光学材料"><img alt="ACS应用光学材料" class="lazy" data-src="/cms/10.1021/aaoma6/asset/title.png"/></a> <noscript><img alt="ACS应用光学材料" src="/cms/10.1021/aaoma6/asset/title.png"/></noscript></div></div><div class="issue-item_metadata"><h5 class="issue-item_title"><a href="/doi/10.1021/acsaom.2c00169" title="">时间分辨扫描隧道显微镜揭示的超快动力学：综述</a></h5><ul class="rlist--inline loa mobile-authors issue-item_loa" title="作者名单">Kangkai Liang <span class="comma-separator">、</span> Liya Bi <span class="comma-separator">、</span> Qingyi Zhu <span class="comma-separator">、</span> Hao Zhou<span class="comma-separator">和</span>Shaowei Li <strong>*</strong> <span class="comma-separator"></span></ul><div class="issue-item_info"><div class="issue-item_info_list"> <span class="issue-item_jour-name"><i>ACS 申请选择。母校。</i></span> <span class="issue-item_yearpubdate"><span>2023</span></span> <span class="issue-item_type">（文章）</span> </div><div class="issue-item_access-icon hidden-sm hidden-xs hidden-md"><div class="issue-item-open-access"><div class="issue-item-editor-choice"> <a href="/page/policy/editorchoice/index.html"><img alt="ACS 编辑选择奖" src="/pb-assets/images/programsLogos/OA_Icons_Ec-1612971054143.svg"/><span>ACS 编辑之选</span></a></div><div class="issue-item-author-choice"><a href="https://acsopenscience.org/open-access/licensing-options/"><img alt="美国化学会作者选择" src="/pb-assets/images/programsLogos/OA_Icons_Ac-1612971054130.svg"/><span>美国化学会作者选择</span></a></div></div></div><span class="issue-item_pubdate"><span><span class="pub-date epub-date">出版日期</span><span class="web-text">（网络）</span> <span class="date-separator">：</span> <span class="pub-date-value">2023 年 3 月 17 日</span></span></span><span class="issue-item_pubdate"><span>ACS 编辑选择日期</span><span class="date-separator">：</span> 2023 年 3 月 17 日</span><div class="issue-item_access-icon hidden-lg"><div class="issue-item-open-access"><div class="issue-item-editor-choice"> <a href="/page/policy/editorchoice/index.html"><img alt="ACS 编辑选择奖" src="/pb-assets/images/programsLogos/OA_Icons_Ec-1612971054143.svg"/><span>ACS 编辑之选</span></a></div><div class="issue-item-author-choice"><a href="https://acsopenscience.org/open-access/licensing-options/"><img alt="美国化学会作者选择" src="/pb-assets/images/programsLogos/OA_Icons_Ac-1612971054130.svg"/><span>美国化学会作者选择</span></a></div></div></div></div><div class="issue-item_footer"><ul class="issue-item_buttons-list"><li><a href="/doi/abs/10.1021/acsaom.2c00169" title="抽象的"><i class="icon-file-o"></i><span>抽象的</span></a></li><li><a href="/doi/full/10.1021/acsaom.2c00169" title="全文"><i class="icon-file-text-o"></i><span>全文</span></a></li><li><a href="/doi/pdf/10.1021/acsaom.2c00169" title="PDF"><i class="icon-file-pdf-o"></i><span>PDF</span></a></li></ul><div class="accordion"><a class="accordion__control" href="#" title="预览摘要"><i class="icon-angle-down"></i><span>抽象的</span></a><div class="accordion__content"><p>能够执行泵浦-探测光谱的扫描隧道显微镜 (STM) 集成了无与伦比的原子级分辨率和高时间分辨率。近年来，电子、太赫兹或可见/近红外脉冲与 STM 的结合有助于我们理解发生在毫秒和阿秒之间的原子级过程。这种时间分辨 STM (TR-STM) 技术正在发展成为一种无与伦比的方法，用于探索分子、低维结构和材料表面的超快核、电子或自旋动力学。在这里，我们回顾了 TR-STM 的最新进展；调查其在测量三个不同系统（原子核、电子和自旋）的动力学方面的应用；并在一系列材料中报告对这些瞬态过程的研究。除了对最先进技术的讨论之外，我们还强调了几个关于纳米级物体超快过程的新兴研究课题，我们预计 TR-STM 可以帮助拓宽我们的知识面。 </p></div></div></div></div></div><div class="issue-item clearfix"><div class="issue-item_img"><img alt="文章图" class="lazy" data-src="/cms/10.1021/acscatal.2c06303/asset/images/medium/cs2c06303_0013.gif"/><noscript><img alt="文章图" src="/cms/10.1021/acscatal.2c06303/asset/images/medium/cs2c06303_0013.gif"/></noscript><div class="issue-item_jour-logo"> <a href="/journal/accacs" title="ACS催化"><img alt="ACS催化" class="lazy" data-src="/cms/10.1021/accacs/asset/title.png"/></a> <noscript><img alt="ACS催化" src="/cms/10.1021/accacs/asset/title.png"/></noscript></div></div><div class="issue-item_metadata"><h5 class="issue-item_title"><a href="/doi/10.1021/acscatal.2c06303" title="">吡唑并吡啶酮配体实现芳烃的非定向 Pd 催化 C-H 全氘化和<em>间位</em>选择性烯基化</a></h5><ul class="rlist--inline loa mobile-authors issue-item_loa" title="作者名单">Seo Jin Yun <span class="comma-separator">、</span> Jisu Kim <span class="comma-separator">、</span> Eunsu Kang <span class="comma-separator">、</span> Hoimin Jung <span class="comma-separator">、</span> Hyun Tae Kim <span class="comma-separator">、</span> Minkyu Kim<span class="comma-separator">和</span>Jung Min Joo <strong>*</strong> <span class="comma-separator"></span></ul><div class="issue-item_info"><div class="issue-item_info_list"> <span class="issue-item_jour-name"><i>ACS 加泰罗尼亚语。</i></span> <span class="issue-item_yearpubdate"><span>2023</span></span> <span class="issue-item_type">（文章）</span> </div><div class="issue-item_access-icon hidden-sm hidden-xs hidden-md"><div class="issue-item-open-access"><div class="issue-item-editor-choice"> <a href="/page/policy/editorchoice/index.html"><img alt="ACS 编辑选择奖" src="/pb-assets/images/programsLogos/OA_Icons_Ec-1612971054143.svg"/><span>ACS 编辑之选</span></a></div></div></div><span class="issue-item_pubdate"><span><span class="pub-date epub-date">出版日期</span><span class="web-text">（网络）</span> <span class="date-separator">：</span> <span class="pub-date-value">2023 年 3 月 16 日</span></span></span><span class="issue-item_pubdate"><span>ACS 编辑选择日期</span><span class="date-separator">：</span> 2023 年 3 月 16 日</span><div class="issue-item_access-icon hidden-lg"><div class="issue-item-open-access"><div class="issue-item-editor-choice"> <a href="/page/policy/editorchoice/index.html"><img alt="ACS 编辑选择奖" src="/pb-assets/images/programsLogos/OA_Icons_Ec-1612971054143.svg"/><span>ACS 编辑之选</span></a></div></div></div></div><div class="issue-item_footer"><ul class="issue-item_buttons-list"><li><a href="/doi/abs/10.1021/acscatal.2c06303" title="抽象的"><i class="icon-file-o"></i><span>抽象的</span></a></li><li> <a href="/doi/full/10.1021/acscatal.2c06303" title="全文"><i class="icon-file-text-o"></i><span>全文</span></a></li><li><a href="/doi/pdf/10.1021/acscatal.2c06303" title="PDF"><i class="icon-file-pdf-o"></i><span>PDF</span></a></li></ul><div class="accordion"><a class="accordion__control" href="#" title="预览摘要"><i class="icon-angle-down"></i><span>抽象的</span></a><div class="accordion__content"><p>配体的开发及其在催化循环中的作用的阐明是在非定向过渡金属催化的 C-H 功能化中实现高效率和选择性的关键。特别是，仔细的配体设计可以实现以前无法接近的底物位置的功能化，这可能导致常见反应物的区域发散转变。在这项研究中，开发了一系列可一步轻松制备的吡唑并吡啶酮 (PzPyOH) 配体，用于 Pd 催化的芳烃全氘化和间位选择性烯基化。在这个系统中，2-吡啶酮部分被纳入作为内部碱基，促进 C-H 裂解并使 C-H 活化可逆，即使在具有挑战性的 sp2 C-H 键下，从而实现全氘化。此外，C-H 键的可逆激活意味着位点选择性是在烯基化反应的迁移插入步骤中确定的，因此优先功能化间位而不是苯甲醚衍生物通常更具反应性的邻位和对位.此外，吡唑部分的电子和结构特性为配体与 Pd 的结合提供了灵活性，使烯烃偶联伙伴在烯基化过程中能够轻松配位。在此过程中，吡啶酮和乙酸配体之间的氢键对于稳定中间体至关重要，允许不同类型的结合模式，包括 L,L- 和 L,X-型双齿和单齿结合。动力学和计算研究支持所提出的全氘化和烯基化机制，研究结果揭示了 Pd 催化的 C-H 功能化配体设计中的关键因素，这将有助于进一步开发含吡唑和吡啶酮的配体在过渡阶段金属催化。 </p></div></div></div></div></div><div class="issue-item clearfix"><div class="issue-item_img"><img alt="文章图" class="lazy" data-src="/cms/10.1021/acs.bioconjchem.3c00042/asset/images/medium/bc3c00042_0007.gif"/><noscript><img alt="文章图" src="/cms/10.1021/acs.bioconjchem.3c00042/asset/images/medium/bc3c00042_0007.gif"/></noscript><div class="issue-item_jour-logo"> <a href="/journal/bcches" title="生物共轭化学"><img alt="生物共轭化学" class="lazy" data-src="/cms/10.1021/bcches/asset/title.png"/></a><noscript><img alt="生物共轭化学" src="/cms/10.1021/bcches/asset/title.png"/></noscript></div></div><div class="issue-item_metadata"><h5 class="issue-item_title"><a href="/doi/10.1021/acs.bioconjchem.3c00042" title="">三（羟甲基）氨基甲烷接头-带有三嗪基的三葡糖苷用于膜蛋白的增溶和稳定</a></h5><ul class="rlist--inline loa mobile-authors issue-item_loa" title="作者名单">Lubna Ghani <span class="comma-separator">、</span> Xiang Zhang <span class="comma-separator">、</span> Chastine F. Munk <span class="comma-separator">、</span> Parameswaran Hariharan <span class="comma-separator">、</span> Baoliang Lan <span class="comma-separator">、</span> Hong Sik Yun <span class="comma-separator">、</span> Bernadette Byrne <span class="comma-separator">、</span> Lan Guan <span class="comma-separator">、</span> Claus J. Loland <span class="comma-separator">、</span> Xiangyu Liu<span class="comma-separator">和</span>Pil Seok Chae <strong>*</strong> <span class="comma-separator"></span></ul><div class="issue-item_info"><div class="issue-item_info_list"><span class="issue-item_jour-name"><i>生物共轭化学。</i></span> <span class="issue-item_yearpubdate"><span>2023</span></span> <span class="issue-item_type">（文章）</span> </div><div class="issue-item_access-icon hidden-sm hidden-xs hidden-md"><div class="issue-item-open-access"><div class="issue-item-editor-choice"> <a href="/page/policy/editorchoice/index.html"><img alt="ACS 编辑选择奖" src="/pb-assets/images/programsLogos/OA_Icons_Ec-1612971054143.svg"/><span>ACS 编辑之选</span></a></div></div></div><span class="issue-item_pubdate"><span><span class="pub-date epub-date">出版日期</span><span class="web-text">（网络）</span> <span class="date-separator">：</span> <span class="pub-date-value">2023 年 3 月 15 日</span></span></span><span class="issue-item_pubdate"><span>ACS 编辑选择日期</span><span class="date-separator">：</span> 2023 年 3 月 15 日</span><div class="issue-item_access-icon hidden-lg"><div class="issue-item-open-access"><div class="issue-item-editor-choice"> <a href="/page/policy/editorchoice/index.html"><img alt="ACS 编辑选择奖" src="/pb-assets/images/programsLogos/OA_Icons_Ec-1612971054143.svg"/><span>ACS 编辑之选</span></a></div></div></div></div><div class="issue-item_footer"><ul class="issue-item_buttons-list"><li> <a href="/doi/abs/10.1021/acs.bioconjchem.3c00042" title="抽象的"><i class="icon-file-o"></i><span>抽象的</span></a></li><li><a href="/doi/full/10.1021/acs.bioconjchem.3c00042" title="全文"><i class="icon-file-text-o"></i><span>全文</span></a></li><li><a href="/doi/pdf/10.1021/acs.bioconjchem.3c00042" title="PDF"><i class="icon-file-pdf-o"></i><span>PDF</span></a></li></ul><div class="accordion"><a class="accordion__control" href="#" title="预览摘要"><i class="icon-angle-down"></i><span>抽象的</span></a><div class="accordion__content"><p>高分辨率膜蛋白结构对于基本了解不同细胞过程的分子基础和药物发现至关重要。去污剂广泛用于从膜中提取跨膜蛋白，并将其保持在功能状态以进行下游表征。由于封装在传统洗涤剂中的膜蛋白的长期稳定性有限，需要开发新型试剂以促进膜蛋白结构研究。在当前的研究中，我们设计并合成了带有三（羟甲基）氨基甲烷接头的三嗪基三葡糖苷（TTG），用于膜蛋白的增溶和稳定。当这些葡萄糖苷去污剂针对包括两个 G 蛋白偶联受体在内的四种膜蛋白进行评估时，包括 TTG-C10 和 TTG-C11 在内的一些 TTG 相对于两种麦芽糖苷去污剂 [DDM（正十二烷基-β）表现出显着增强的膜蛋白稳定性行为-d-麦芽糖苷）和 LMNG（月桂基麦芽糖新戊二醇）]。这是 TTG 的一个显着特征，因为葡糖苷洗涤剂在稳定膜蛋白方面往往不如麦芽糖苷洗涤剂。 TTGs 对膜蛋白稳定性的有利行为可能是由于亲脂基团的高疏水性、亲水亲油平衡的最佳范围以及顺反异构现象的存在。 </p></div></div></div></div></div><div class="issue-item clearfix"><div class="issue-item_img"><img alt="文章图" class="lazy" data-src="/cms/10.1021/acs.chemmater.2c03568/asset/images/medium/cm2c03568_0007.gif"/><noscript><img alt="文章图" src="/cms/10.1021/acs.chemmater.2c03568/asset/images/medium/cm2c03568_0007.gif"/></noscript><div class="issue-item_jour-logo"> <a href="/journal/cmatex" title="材料化学"><img alt="材料化学" class="lazy" data-src="/cms/10.1021/cmatex/asset/title.png"/></a><noscript><img alt="材料化学" src="/cms/10.1021/cmatex/asset/title.png"/></noscript></div></div><div class="issue-item_metadata"><h5 class="issue-item_title"><a href="/doi/10.1021/acs.chemmater.2c03568" title="">六方氮化硼在高纵横比硅基纳米沟槽上的共形生长</a></h5><ul class="rlist--inline loa mobile-authors issue-item_loa" title="作者名单">Jiye Kim <span class="comma-separator">、</span> Kyung-Yeon Doh <span class="comma-separator">、</span> Seokho Moon <span class="comma-separator">、</span> Chang-Won Choi <span class="comma-separator">、</span> Hokyeong Jeong <span class="comma-separator">、</span> Jaewon Kim <span class="comma-separator">、</span> Wonseok Yoo <span class="comma-separator">、</span> Kyungwook Park <span class="comma-separator">、</span> Kyeongock Chong <span class="comma-separator">、</span> Chunhyng Chung <span class="comma-separator">、</span> Hanmei Choi <span class="comma-separator">、</span> Si-Young Choi <span class="comma-separator">、</span> Donghwa Lee<span class="comma-separator">和</span>Jong Kyu Kim <strong>*</strong> <span class="comma-separator"></span></ul><div class="issue-item_info"><div class="issue-item_info_list"><span class="issue-item_jour-name"><i>化学。母校。</i></span> <span class="issue-item_yearpubdate"><span>2023</span></span> <span class="issue-item_type">（文章）</span> </div><div class="issue-item_access-icon hidden-sm hidden-xs hidden-md"><div class="issue-item-open-access"><div class="issue-item-editor-choice"> <a href="/page/policy/editorchoice/index.html"><img alt="ACS 编辑选择奖" src="/pb-assets/images/programsLogos/OA_Icons_Ec-1612971054143.svg"/><span>ACS 编辑之选</span></a></div></div></div><span class="issue-item_pubdate"><span><span class="pub-date epub-date">出版日期</span><span class="web-text">（网络）</span> <span class="date-separator">：</span> <span class="pub-date-value">2023 年 3 月 14 日</span></span></span><span class="issue-item_pubdate"><span>ACS 编辑选择日期</span><span class="date-separator">：</span> 2023 年 3 月 14 日</span><div class="issue-item_access-icon hidden-lg"><div class="issue-item-open-access"><div class="issue-item-editor-choice"> <a href="/page/policy/editorchoice/index.html"><img alt="ACS 编辑选择奖" src="/pb-assets/images/programsLogos/OA_Icons_Ec-1612971054143.svg"/><span>ACS 编辑之选</span></a></div></div></div></div><div class="issue-item_footer"><ul class="issue-item_buttons-list"><li><a href="/doi/abs/10.1021/acs.chemmater.2c03568" title="抽象的"><i class="icon-file-o"></i><span>抽象的</span></a></li><li><a href="/doi/full/10.1021/acs.chemmater.2c03568" title="全文"><i class="icon-file-text-o"></i><span>全文</span></a></li><li><a href="/doi/pdf/10.1021/acs.chemmater.2c03568" title="PDF"><i class="icon-file-pdf-o"></i><span>PDF</span></a></li></ul><div class="accordion"><a class="accordion__control" href="#" title="预览摘要"><i class="icon-angle-down"></i><span>抽象的</span></a><div class="accordion__content"><p>通过使用脉冲模式金属有机化学气相沉积，我们成功地在间距为 45 nm、纵横比为 ~7:1 的硅基纳米沟槽阵列上实现了 sp2 杂化的少层 h-BN 的共形生长(MOCVD) 方法。表面敏感的 X 射线吸收精细结构光谱和密度泛函理论计算表明，在非催化 SiO2 表面上形成的 B-O 键作为成核位点，随后在极处形成混合的 sp2 和 sp3 杂化的 BON2 和 BN3。 MOCVD 前驱体脉冲模式注入的初始阶段，能够实现具有出色阶梯覆盖的少层 sp2 杂化 h-BN 的共形生长。我们相信，这些结果可以为当前最先进的三维硅基纳米结构实现迷人的二维层状材料提供广阔的途径，克服缩小尺寸的限制。 </p></div></div></div></div></div><div class="issue-item clearfix"><div class="issue-item_img"><img alt="文章图" class="lazy" data-src="/cms/10.1021/acsfoodscitech.2c00351/asset/images/medium/fs2c00351_0007.gif"/><noscript><img alt="文章图" src="/cms/10.1021/acsfoodscitech.2c00351/asset/images/medium/fs2c00351_0007.gif"/></noscript><div class="issue-item_jour-logo"> <a href="/journal/afsthl" title="ACS食品科技"><img alt="ACS食品科技" class="lazy" data-src="/cms/10.1021/afsthl/asset/title.png"/></a> <noscript><img alt="ACS食品科技" src="/cms/10.1021/afsthl/asset/title.png"/></noscript></div></div><div class="issue-item_metadata"><h5 class="issue-item_title"><a href="/doi/10.1021/acsfoodscitech.2c00351" title="">表征包装类型对啤酒稳定性的影响</a></h5><ul class="rlist--inline loa mobile-authors issue-item_loa" title="作者名单">Kathryn Fromuth <span class="comma-separator">、</span> Jacqueline M. Chaparro <span class="comma-separator">、</span> Dana Sedin <span class="comma-separator">、</span> Charlene Van Buiten<span class="comma-separator">和</span>Jessica E. Prenni <strong>*</strong> <span class="comma-separator"></span></ul><div class="issue-item_info"><div class="issue-item_info_list"> <span class="issue-item_jour-name"><i>ACS 食品科学。技术。</i></span> <span class="issue-item_yearpubdate"><span>2023</span></span> <span class="issue-item_type">（文章）</span> </div><div class="issue-item_access-icon hidden-sm hidden-xs hidden-md"><div class="issue-item-open-access"><div class="issue-item-editor-choice"> <a href="/page/policy/editorchoice/index.html"><img alt="ACS 编辑选择奖" src="/pb-assets/images/programsLogos/OA_Icons_Ec-1612971054143.svg"/><span>ACS 编辑之选</span></a></div></div></div><span class="issue-item_pubdate"><span><span class="pub-date epub-date">出版日期</span><span class="web-text">（网络）</span> <span class="date-separator">：</span> <span class="pub-date-value">2023 年 3 月 13 日</span></span></span><span class="issue-item_pubdate"><span>ACS 编辑选择日期</span><span class="date-separator">：</span> 2023 年 3 月 13 日</span><div class="issue-item_access-icon hidden-lg"><div class="issue-item-open-access"><div class="issue-item-editor-choice"> <a href="/page/policy/editorchoice/index.html"><img alt="ACS 编辑选择奖" src="/pb-assets/images/programsLogos/OA_Icons_Ec-1612971054143.svg"/><span>ACS 编辑之选</span></a></div></div></div></div><div class="issue-item_footer"><ul class="issue-item_buttons-list"><li> <a href="/doi/abs/10.1021/acsfoodscitech.2c00351" title="抽象的"><i class="icon-file-o"></i><span>抽象的</span></a></li><li><a href="/doi/full/10.1021/acsfoodscitech.2c00351" title="全文"><i class="icon-file-text-o"></i><span>全文</span></a></li><li><a href="/doi/pdf/10.1021/acsfoodscitech.2c00351" title="PDF"><i class="icon-file-pdf-o"></i><span>PDF</span></a></li></ul><div class="accordion"><a class="accordion__control" href="#" title="预览摘要"><i class="icon-angle-down"></i><span>抽象的</span></a><div class="accordion__content"><p>酿造行业竞争激烈，推动了啤酒稳定性的重要性。酿酒商使用铝罐和玻璃瓶来分发产品；但是，尚未对这两种包装类型对啤酒稳定性的影响进行直接比较。在这里，使用非靶向代谢组学方法来表征在 6 个月的陈化期内，罐装和瓶装琥珀啤酒 (AA) 和印度淡啤酒 (IPA) 的代谢物概况的变化。在所有时间点上，AA 均观察到包装类型的强相关性，但 IPA 并非如此。在 AA 中还观察到氨基酸（甘氨酸、酪氨酸和天冬酰胺）和酯类（异丁酸异丁酯、丁酸 2-甲基丁酯和癸酸乙酯）的基线差异。啤酒花萜烯（葎草烯、松香芹酮和 α-卡拉核）显示出随时间的包装依赖性变化，这些变化似乎受代谢物水溶性的影响。总体而言，结果表明啤酒代谢物以及稳定性受到包装类型的显着影响。 </p></div></div></div></div></div><div class="issue-item clearfix"><div class="issue-item_img"><img alt="文章图" class="lazy" data-src="/cms/10.1021/acs.analchem.2c04844/asset/images/medium/ac2c04844_0008.gif"/><noscript><img alt="文章图" src="/cms/10.1021/acs.analchem.2c04844/asset/images/medium/ac2c04844_0008.gif"/></noscript><div class="issue-item_jour-logo"> <a href="/journal/ancham" title="分析化学"><img alt="分析化学" class="lazy" data-src="/cms/10.1021/ancham/asset/title.png"/></a><noscript><img alt="分析化学" src="/cms/10.1021/ancham/asset/title.png"/></noscript></div></div><div class="issue-item_metadata"><h5 class="issue-item_title"><a href="/doi/10.1021/acs.analchem.2c04844" title="">使用四极能量过滤辅助的同位素稀释-热电离质谱法直接定量微量生物样品中锶 90 的阿克级</a></h5><ul class="rlist--inline loa mobile-authors issue-item_loa" title="作者名单">Jo Aoki <span class="comma-separator">、</span> Shigeyuki Wakaki <span class="comma-separator">、</span> Hiroko Ishiniwa <span class="comma-separator">、</span> Tomohiko Kawakami <span class="comma-separator">、</span> Takashi Miyazaki <span class="comma-separator">、</span> Katsuhiko Suzuki<span class="comma-separator">和</span>Yoshitaka Takagai <strong>*</strong> <span class="comma-separator"></span></ul><div class="issue-item_info"><div class="issue-item_info_list"><span class="issue-item_jour-name"><i>肛门。化学。</i></span> <span class="issue-item_yearpubdate"><span>2023</span></span> <span class="issue-item_vol-num">95,</span> <span class="issue-item_issue-num">11,</span> <span class="issue-item_page-range">4932-4939</span> <span class="issue-item_type">（文章）</span> </div><div class="issue-item_access-icon hidden-sm hidden-xs hidden-md"><div class="issue-item-open-access"><div class="issue-item-editor-choice"> <a href="/page/policy/editorchoice/index.html"><img alt="ACS 编辑选择奖" src="/pb-assets/images/programsLogos/OA_Icons_Ec-1612971054143.svg"/><span>ACS 编辑之选</span></a></div></div></div><span class="issue-item_pubdate"><span><span class="pub-date epub-date">出版日期</span><span class="web-text">（网络）</span> <span class="date-separator">：</span> <span class="pub-date-value">2023 年 3 月 12 日</span></span></span><span class="issue-item_pubdate"><span>ACS 编辑选择日期</span><span class="date-separator">：</span> 2023 年 3 月 12 日</span><div class="issue-item_access-icon hidden-lg"><div class="issue-item-open-access"><div class="issue-item-editor-choice"> <a href="/page/policy/editorchoice/index.html"><img alt="ACS 编辑选择奖" src="/pb-assets/images/programsLogos/OA_Icons_Ec-1612971054143.svg"/><span>ACS 编辑之选</span></a></div></div></div></div><div class="issue-item_footer"><ul class="issue-item_buttons-list"><li> <a href="/doi/abs/10.1021/acs.analchem.2c04844" title="抽象的"><i class="icon-file-o"></i><span>抽象的</span></a></li><li><a href="/doi/full/10.1021/acs.analchem.2c04844" title="全文"><i class="icon-file-text-o"></i><span>全文</span></a></li><li><a href="/doi/pdf/10.1021/acs.analchem.2c04844" title="PDF"><i class="icon-file-pdf-o"></i><span>PDF</span></a></li></ul><div class="accordion"><a class="accordion__control" href="#" title="预览摘要"><i class="icon-angle-down"></i><span>抽象的</span></a><div class="accordion__content"><p>尽管热电离质谱 (TIMS) 已被用于同位素比率的高精度分析，但由于大量的共存，即使使用同位素稀释 (ID) 也很难直接量化环境中的人工单核素。天然稳定核素或等压线。在传统的 TIMS 和 ID-TIMS 中，需要在灯丝上掺杂足够量的稳定 Sr 才能实现稳定且足够的离子束强度（即热电离束）。然而，由电子倍增器检测到的 m/z 90 处的背景噪声 (BGN) 会干扰低浓度水平的 90Sr 分析，这是由于取决于 88Sr 掺杂量的显着 88Sr 离子束的峰拖尾。在这里，由四重能量过滤辅助的 TIMS 成功地用于直接量化微型生物样品中人工单同位素放射性核素锶 90 (90Sr) 的阿克级。通过整合天然 Sr 的 ID 量化和同步 90Sr/86Sr 同位素比分析实现直接量化。此外，通过减去暗噪声和从幸存的 88Sr 中得出的检测量，对通过 ID 和相互校准的组合计算的测量量针对 90Sr 的净结果量进行了校正，这与 m/z 90 处的 BGN 强度相当。背景校正显示检测限在 6.15 × 10–2–3.90 × 10–1 ag (0.31–1.95 μBq) 范围内，具体取决于 1 μL 样品中天然 Sr 的浓度以及 0.98 ag 的定量(5.0 μBq) 在 0–300 mg/L 天然 Sr 中的 90Sr 是成功的。该方法可以分析少量样品 (1 μL)，并根据授权的辐射分析技术验证了定量结果。此外，还成功量化了实际牙齿中的 90Sr 含量。该方法将成为测量微型样品中 90Sr 的有力工具，这些样品需要评估和了解内部辐射暴露程度。 </p></div></div></div></div></div><div class="issue-item clearfix"><div class="issue-item_img"><img alt="文章图" class="lazy" data-src="/cms/10.1021/acs.iecr.3c00120/asset/images/medium/ie3c00120_0011.gif"/><noscript><img alt="文章图" src="/cms/10.1021/acs.iecr.3c00120/asset/images/medium/ie3c00120_0011.gif"/></noscript><div class="issue-item_jour-logo"> <a href="/journal/iecred" title="工业与工程化学研究"><img alt="工业与工程化学研究" class="lazy" data-src="/cms/10.1021/iecred/asset/title.png"/></a> <noscript><img alt="工业与工程化学研究" src="/cms/10.1021/iecred/asset/title.png"/></noscript></div></div><div class="issue-item_metadata"><h5 class="issue-item_title"><a href="/doi/10.1021/acs.iecr.3c00120" title="">揭示 Ni 催化剂中三重界面对甲烷干法重整的独特促进作用</a></h5><ul class="rlist--inline loa mobile-authors issue-item_loa" title="作者名单">Xiaoyu Zhang <span class="comma-separator">、</span> Yongjie Shen <span class="comma-separator">、</span> Yuying Liu <span class="comma-separator">、</span> Jiajia Zheng <span class="comma-separator">、</span> Jiang Deng <span class="comma-separator">、</span> Tingting Yan <span class="comma-separator">、</span> Danhong Cheng<span class="comma-separator">和</span>Dengsong Zhang <strong>*</strong> <span class="comma-separator"></span></ul><div class="issue-item_info"><div class="issue-item_info_list"><span class="issue-item_jour-name"><i>工业工程师化学。水库。</i></span> <span class="issue-item_yearpubdate"><span>2023</span></span> <span class="issue-item_type">（文章）</span> </div><div class="issue-item_access-icon hidden-sm hidden-xs hidden-md"><div class="issue-item-open-access"><div class="issue-item-editor-choice"> <a href="/page/policy/editorchoice/index.html"><img alt="ACS 编辑选择奖" src="/pb-assets/images/programsLogos/OA_Icons_Ec-1612971054143.svg"/><span>ACS 编辑之选</span></a></div></div></div><span class="issue-item_pubdate"><span><span class="pub-date epub-date">出版日期</span><span class="web-text">（网络）</span> <span class="date-separator">：</span> <span class="pub-date-value">2023 年 3 月 11 日</span></span></span><span class="issue-item_pubdate"><span>ACS 编辑选择日期</span><span class="date-separator">：</span> 2023 年 3 月 11 日</span><div class="issue-item_access-icon hidden-lg"><div class="issue-item-open-access"><div class="issue-item-editor-choice"> <a href="/page/policy/editorchoice/index.html"><img alt="ACS 编辑选择奖" src="/pb-assets/images/programsLogos/OA_Icons_Ec-1612971054143.svg"/><span>ACS 编辑之选</span></a></div></div></div></div><div class="issue-item_footer"><ul class="issue-item_buttons-list"><li><a href="/doi/abs/10.1021/acs.iecr.3c00120" title="抽象的"><i class="icon-file-o"></i><span>抽象的</span></a></li><li> <a href="/doi/full/10.1021/acs.iecr.3c00120" title="全文"><i class="icon-file-text-o"></i><span>全文</span></a></li><li><a href="/doi/pdf/10.1021/acs.iecr.3c00120" title="PDF"><i class="icon-file-pdf-o"></i><span>PDF</span></a></li></ul><div class="accordion"><a class="accordion__control" href="#" title="预览摘要"><i class="icon-angle-down"></i><span>抽象的</span></a><div class="accordion__content"><p>甲烷干法重整 (MDR) 因其高效消耗温室气体和生产有价值的合成气而备受关注。金属和氮化硼 (BN) 的界面有望增强催化活性并抑制焦炭形成。在此，构建了层状金属氧化物 (NiMgAlOx) 和 BN 的复合材料以形成界面限制的 NiMgAlOx/BN (Ni-MAO/BN) 催化剂，并揭示了三重界面在 Ni 催化剂中的独特促进作用。 Ni、BN 和 MgAlOx 氧化物之间的三重界面增强了开发的催化剂的抗烧结性，这赋予开发的催化剂优异的 CH4 和 CO2 吸附/活化能力以及在长期 MDR 活性测试中的出色稳定性。 Ni-MAO/BN 催化剂中丰富的碳酸氢盐 (HCO3*) 物种表明三重界面显着增强了气体活化。同时，HCO3* 和 CO3* 物种的动态变化进一步证明了 Ni-MAO/BN 催化剂对深度 CH4 裂解的抑制和快速反应速率。在原位拉曼光谱中观察到的可忽略不计的石墨碳和产生的大量 H2/CO 不仅证明了优异的抗结焦性，而且还证明了 CO2 和 CH4 的活化能力增强。这项工作阐明了界面效应对气体活化的作用，并为设计用于 MDR 的高效镍催化剂提供了创新见解。 </p></div></div></div></div></div><div class="issue-item clearfix"><div class="issue-item_img"><img alt="文章图" class="lazy" data-src="/cms/10.1021/acs.bioconjchem.2c00527/asset/images/medium/bc2c00527_0007.gif"/><noscript><img alt="文章图" src="/cms/10.1021/acs.bioconjchem.2c00527/asset/images/medium/bc2c00527_0007.gif"/></noscript><div class="issue-item_jour-logo"> <a href="/journal/bcches" title="生物共轭化学"><img alt="生物共轭化学" class="lazy" data-src="/cms/10.1021/bcches/asset/title.png"/></a><noscript><img alt="生物共轭化学" src="/cms/10.1021/bcches/asset/title.png"/></noscript></div></div><div class="issue-item_metadata"><h5 class="issue-item_title"><a href="/doi/10.1021/acs.bioconjchem.2c00527" title="">基于细菌反应中心通过有机光捕获桥与细胞色素<em>c</em>共价结合的用于光转换的超分子生物混合结构</a></h5><ul class="rlist--inline loa mobile-authors issue-item_loa" title="作者名单">Gabriella Buscemi <span class="comma-separator">、</span> Massimo Trotta <span class="comma-separator">、</span> Danilo Vona <span class="comma-separator">、</span> Gianluca M. Farinola <span class="comma-separator">、</span> Francesco Milano <strong>*</strong><span class="comma-separator">和</span>Roberta Ragni <strong>*</strong> <span class="comma-separator"></span></ul><div class="issue-item_info"><div class="issue-item_info_list"><span class="issue-item_jour-name"><i>生物共轭化学。</i></span> <span class="issue-item_yearpubdate"><span>2023</span></span> <span class="issue-item_type">（文章）</span> </div><div class="issue-item_access-icon hidden-sm hidden-xs hidden-md"><div class="issue-item-open-access"><div class="issue-item-editor-choice"> <a href="/page/policy/editorchoice/index.html"><img alt="ACS 编辑选择奖" src="/pb-assets/images/programsLogos/OA_Icons_Ec-1612971054143.svg"/><span>ACS 编辑之选</span></a></div></div></div><span class="issue-item_pubdate"><span><span class="pub-date epub-date">出版日期</span><span class="web-text">（网络）</span> <span class="date-separator">：</span> <span class="pub-date-value">2023 年 3 月 10 日</span></span></span><span class="issue-item_pubdate"><span>ACS 编辑选择日期</span><span class="date-separator">：</span> 2023 年 3 月 10 日</span><div class="issue-item_access-icon hidden-lg"><div class="issue-item-open-access"><div class="issue-item-editor-choice"> <a href="/page/policy/editorchoice/index.html"><img alt="ACS 编辑选择奖" src="/pb-assets/images/programsLogos/OA_Icons_Ec-1612971054143.svg"/><span>ACS 编辑之选</span></a></div></div></div></div><div class="issue-item_footer"><ul class="issue-item_buttons-list"><li> <a href="/doi/abs/10.1021/acs.bioconjchem.2c00527" title="抽象的"><i class="icon-file-o"></i><span>抽象的</span></a></li><li><a href="/doi/full/10.1021/acs.bioconjchem.2c00527" title="全文"><i class="icon-file-text-o"></i><span>全文</span></a></li><li><a href="/doi/pdf/10.1021/acs.bioconjchem.2c00527" title="PDF"><i class="icon-file-pdf-o"></i><span>PDF</span></a></li></ul><div class="accordion"><a class="accordion__control" href="#" title="预览摘要"><i class="icon-angle-down"></i><span>抽象的</span></a><div class="accordion__content"><p>通过将光合细菌球形红杆菌和细胞色素 c (Cyt c) 蛋白的反应中心 (RC) 与定制的有机光捕获天线 (hCy2) 共价桥接，开发了一种用于太阳能转换的超分子结构。 RC-hCy2-Cyt c 生物杂交体模仿位于细菌细胞膜中的生物组装体的工作机制，将阳光转化为代谢能。 hCy2 收集可见光并将能量转移到 RC，增加 RC 和 Cyt c 之间的光循环速率，它们以增强接近度而不阻止蛋白质移动的方式连接。以平均 1 RC/10 hCy2/1.5 Cyt c 摩尔比获得的生物杂化物在 660 nm 照射下与原始 RC 相比具有几乎两倍的光活性，并且与未结合蛋白质的等摩尔混合物相比光电流高约 10 倍。我们的结果代表了对光酶化学操作的有趣见解，为生物光伏的新生态可持续系统开辟了道路。 </p></div></div></div></div></div><div class="issue-item clearfix"><div class="issue-item_img"><img alt="文章图" class="lazy" data-src="/cms/10.1021/acsnano.2c12606/asset/images/medium/nn2c12606_0020.gif"/><noscript><img alt="文章图" src="/cms/10.1021/acsnano.2c12606/asset/images/medium/nn2c12606_0020.gif"/></noscript><div class="issue-item_jour-logo"> <a href="/journal/ancac3" title="ACS纳米"><img alt="ACS纳米" class="lazy" data-src="/cms/10.1021/ancac3/asset/title.png"/></a> <noscript><img alt="ACS纳米" src="/cms/10.1021/ancac3/asset/title.png"/></noscript></div></div><div class="issue-item_metadata"><h5 class="issue-item_title"><a href="/doi/10.1021/acsnano.2c12606" title="">柔性传感器的技术路线图</a></h5><ul class="rlist--inline loa mobile-authors issue-item_loa" title="作者名单">罗一飞<span class="comma-separator">,</span> Mohammad Reza Abidian <span class="comma-separator">,</span> Jong-Hyun Ahn <span class="comma-separator">,</span> Deji Akinwande <span class="comma-separator">,</span> Anne M. Andrews <span class="comma-separator">,</span> Markus Antonietti <span class="comma-separator">,</span> Zhenan Bao <span class="comma-separator">,</span> Magnus Berggren <span class="comma-separator">,</span> Christopher A. Berkey <span class="comma-separator">,</span> Christopher John Bettinger <span class="comma-separator">,</span> Jun Chen <span class="comma-separator">,</span> Peng Chen <span class="comma-separator">,</span> Wenlong Cheng <span class="comma-separator">,</span> Xu Cheng <span class="comma-separator">,</span> Seon-Jin Choi <span class="comma-separator">,</span> Alex Chortos <span class="comma-separator">,</span> Canan Dagdeviren <span class="comma-separator">,</span> Reinhold H. Dauskardt <span class="comma-separator">,</span> Chong-an Di <span class="comma-separator">,</span> Michael D. Dickey <span class="comma-separator">,</span> Xiangfeng Duan <span class="comma-separator">,</span> Antonio Facchetti <span class="comma-separator">,</span>范志勇<span class="comma-separator">,</span> Yin Fang <span class="comma-separator">,</span> Jianyou Feng <span class="comma-separator">,</span> Xue Feng <span class="comma-separator">,</span> Huajian Gao <span class="comma-separator">,</span> Wei Gao <span class="comma-separator">,</span> Xiwen Gong <span class="comma-separator">,</span> Chuan Fei Guo <span class="comma-separator">,</span> Xiaojun Guo <span class="comma-separator">,</span> Martin C. Hartel <span class="comma-separator">,</span> Zihan He <span class="comma-separator">,</span> John S. Ho <span class="comma-separator">,</span> Youfan Hu <span class="comma-separator">,</span> Qiyao Huang <span class="comma-separator">,</span> Yu Huang <span class="comma-separator">,</span> Fengwei Huo <span class="comma-separator">,</span> Muhammad M. Hussain <span class="comma-separator">,</span> Ali Javey <span class="comma-separator">,</span> Unyong Jeong <span class="comma-separator">,</span> Chen Jiang <span class="comma-separator">,</span> Xingyu Jiang <span class="comma-separator">，</span> Jiheong Kang <span class="comma-separator">，</span> Daniil Karnaushenko <span class="comma-separator">，</span> Ali Khademhosseini <span class="comma-separator">，</span> Dae-Hyeong Kim <span class="comma-separator">，</span> Il-Doo Kim <span class="comma-separator">，</span> Dmitry Kireev <span class="comma-separator">，</span> Lingxuan Kong <span class="comma-separator">，</span> Chengkuo Lee <span class="comma-separator">，</span> Nae-Eung Lee <span class="comma-separator">，</span> Pooi See Lee <span class="comma-separator">，</span> Tae-Woo Lee <span class="comma-separator">，</span> Fengyu Li <span class="comma-separator">，</span> Jinxing Li <span class="comma-separator">，</span> Cuiyuan Liang <span class="comma-separator">，</span> Chwee Teck Lim <span class="comma-separator">，</span> Yuanjing Lin <span class="comma-separator">，</span> Darren J. Lipomi <span class="comma-separator">，</span> Jia Liu <span class="comma-separator">，</span> Kai Liu <span class="comma-separator">，</span> Nan Liu <span class="comma-separator">，</span> Ren Liu <span class="comma-separator">，</span> Yuxin Liu <span class="comma-separator">，</span> Yu xuan Liu <span class="comma-separator">,</span> Zhiyuan Liu <span class="comma-separator">,</span>刘壮<span class="comma-separator">建</span><span class="comma-separator">,</span> Xian Jun Loh <span class="comma-separator">,</span> Nanshu Lu <span class="comma-separator">,</span> Zhisheng Lv <span class="comma-separator">,</span> Shlomo Magdassi <span class="comma-separator">,</span> George G. Malliaras <span class="comma-separator">,</span> Naoji Matsuhisa <span class="comma-separator">,</span> Arokia Nathan <span class="comma-separator">,</span> Simiao Niu <span class="comma-separator">,</span> Jieming Pan <span class="comma-separator">, Changhyun Pang,</span> Qibing Pei <span class="comma-separator">,</span> Huisheng Peng <span class="comma-separator">,</span> Dianpeng Qi <span class="comma-separator">,</span> Huaying Ren <span class="comma-separator">,</span> John A. Rogers <span class="comma-separator">,</span> Aaron Rowe <span class="comma-separator">,</span> Oliver G. Schmidt <span class="comma-separator">,</span> Tsuyoshi Sekitani <span class="comma-separator">,</span> Dae-Gyo Seo <span class="comma-separator">,</span> Guozhen Shen <span class="comma-separator">,</span> Xing Sheng <span class="comma-separator">,</span> Qiongfeng Shi <span class="comma-separator">,</span> Takao Someya <span class="comma-separator">,</span> Yanlin Song <span class="comma-separator">,</span> Eleni Stavrinidou <span class="comma-separator">,</span> Meng Su <span class="comma-separator">,</span> Xuemei Sun <span class="comma-separator">,</span> Kuniharu Takei <span class="comma-separator">、</span> Xiao-Ming Tao <span class="comma-separator">、</span> Benjamin CK Tee <span class="comma-separator">、</span> Aaron Voon-Yew Thean <span class="comma-separator">、</span> Tran Quang Trung <span class="comma-separator">、</span> Changjin Wan <span class="comma-separator">、</span> Huiliang Wang <span class="comma-separator">、</span> Joseph Wang <span class="comma-separator">、</span> Ming Wang <span class="comma-separator">、</span> Sihong Wang <span class="comma-separator">、</span> Ting Wang <span class="comma-separator">、</span> Zhong Lin Wang <span class="comma-separator">、</span> Paul S. Weiss <span class="comma-separator">、</span> Hanqi Wen <span class="comma-separator">,</span>徐胜<span class="comma-separator">,</span>徐泰林<span class="comma-separator">,</span>闫红平<span class="comma-separator">,</span>闫徐州<span class="comma-separator">,</span>杨辉<span class="comma-separator">,</span>杨乐<span class="comma-separator">,</span><span class="comma-separator">杨</span>帅建<span class="comma-separator">,</span>尹兰<span class="comma-separator">,</span>于存江, 于桂华<span class="comma-separator">,</span>于靖<span class="comma-separator">,</span>于书红<span class="comma-separator">,</span>于欣格<span class="comma-separator">,</span> Evgeny Zamburg <span class="comma-separator">,</span>张海霞<span class="comma-separator">,</span>张翔宇<span class="comma-separator">,</span>张晓生<span class="comma-separator">,</span>张学季<span class="comma-separator">,</span>张一辉<span class="comma-separator">,</span>张宇<span class="comma-separator">,</span>赵思远<span class="comma-separator">,</span>赵宣和<span class="comma-separator">,</span>郑元进<span class="comma-separator">,</span>甄玉清g <span class="comma-separator">,</span> Zijian Zheng <span class="comma-separator">,</span> Tao Zhou <span class="comma-separator">,</span> Bowen Zhu <span class="comma-separator">,</span> Ming Zhu <span class="comma-separator">,</span> Rong Zhu <span class="comma-separator">,</span> Yangzhi Zhu <span class="comma-separator">,</span> Yong Zhu <span class="comma-separator">,</span> Guijin Zou <span class="comma-separator">, and</span> Xiaodong Chen <strong>*</strong> <span class="comma-separator"></span></ul><div class="issue-item_info"><div class="issue-item_info_list"> <span class="issue-item_jour-name"><i>ACS Nano</i></span> <span class="issue-item_yearpubdate"><span>2023</span></span> <span class="issue-item_type">（文章）</span> </div><div class="issue-item_access-icon hidden-sm hidden-xs hidden-md"><div class="issue-item-open-access"><div class="issue-item-editor-choice"> <a href="/page/policy/editorchoice/index.html"><img alt="ACS 编辑选择奖" src="/pb-assets/images/programsLogos/OA_Icons_Ec-1612971054143.svg"/><span>ACS 编辑之选</span></a></div></div></div><span class="issue-item_pubdate"><span><span class="pub-date epub-date">出版日期</span><span class="web-text">（网络）</span> <span class="date-separator">：</span> <span class="pub-date-value">2023 年 3 月 9 日</span></span></span><span class="issue-item_pubdate"><span>ACS 编辑选择日期</span><span class="date-separator">：</span> 2023 年 3 月 9 日</span><div class="issue-item_access-icon hidden-lg"><div class="issue-item-open-access"><div class="issue-item-editor-choice"> <a href="/page/policy/editorchoice/index.html"><img alt="ACS 编辑选择奖" src="/pb-assets/images/programsLogos/OA_Icons_Ec-1612971054143.svg"/><span>ACS 编辑之选</span></a></div></div></div></div><div class="issue-item_footer"><ul class="issue-item_buttons-list"><li><a href="/doi/abs/10.1021/acsnano.2c12606" title="抽象的"><i class="icon-file-o"></i><span>抽象的</span></a></li><li><a href="/doi/full/10.1021/acsnano.2c12606" title="全文"><i class="icon-file-text-o"></i><span>全文</span></a></li><li><a href="/doi/pdf/10.1021/acsnano.2c12606" title="PDF"><i class="icon-file-pdf-o"></i><span>PDF</span></a></li></ul><div class="accordion"><a class="accordion__control" href="#" title="预览摘要"><i class="icon-angle-down"></i><span>抽象的</span></a><div class="accordion__content"><p>在数字化和大数据时代，人类越来越依赖传感器来应对重大挑战并提高生活质量。为了无处不在的传感，开发了柔性传感器以克服传统刚性传感器的局限性。尽管在过去十年中实验室研究取得了快速进展，但柔性传感器的市场采用仍然有限。为了简化和加快它们的部署，在这里，我们确定了阻碍柔性传感器成熟的瓶颈，并提出了有前途的解决方案。我们首先分析在实际应用中实现令人满意的传感性能所面临的挑战，然后总结兼容的传感器-生物学接口中的问题，然后简要讨论供电和连接传感器网络。还分析了该行业商业化和可持续增长过程中的问题，强调了环境问题并强调了非技术问题，例如商业、监管和道德方面的考虑。此外，我们着眼于未来的智能柔性传感器。在提出综合路线图时，我们希望将研究工作引向共同目标，并指导不同社区的协调发展战略。通过这样的合作努力，可以更快地取得科学突破并将其用于造福人类。</p></div></div></div></div></div><div class="simple-pagination"><a class="simple-pagination_next" href="#" id="down-nextID"><span>下一个</span><i class="icon-angle-right"></i></a></div></div><script>
+$(document).ready(function() {
+ $('#top-nextID').click(function() {
+      gtag('event', 'Click', { 'event_category': 'EC_Top_Pagination', 'event_label':'Next'});
+ });
+ $('#down-nextID').click(function() {
+      gtag('event', 'Click', { 'event_category': 'EC_Lower_Pagination', 'event_label':'Next'});
+ });
+});	
+
+</script></div></main><footer class="footer"><div class="footer_first-row" id="partners"><div class="container"><div class="row"><div class="col-xs-12"><div class="footer_first-row_title"><h2>伙伴</h2></div><div class="footer_first-row_logos"><div><a href="http://www.atypon.com/"><img alt="阿特彭" height="23" src="/pb-assets/images/footer_logos/logo-atypon-1525376610217.png" width="85"/></a></div><div> <a href="http://www.chorusaccess.org/"><img alt="合唱" height="15" src="/pb-assets/images/footer_logos/logo-chorus-1525375622947.png" width="85"/></a></div><div> <a href="http://publicationethics.org/"><img alt="应对出版伦理" height="55" src="/pb-assets/images/footer_logos/logo-cope-1525375622977.png" width="85"/></a></div><div> <a href="http://www.projectcounter.org/"><img alt="专案柜台" height="34" src="/pb-assets/images/footer_logos/logo-counter-1523044519173.jpg" width="82"/></a></div><div> <a href="http://www.crossref.org/"><img alt="交叉引用" height="42" src="/pb-assets/images/footer_logos/logo-crossref-1525377362093.png" width="85"/></a></div><div> <a href="http://www.crossref.org/crosscheck/index.html"><img alt="Crossref 相似性检查" height="42" src="/pb-assets/images/footer_logos/logo-crosscheck-1525375623000.png" width="85"/></a></div><div> <a href="http://www.orcid.org/"><img alt="Orcid 连接研究人员" height="48" src="/pb-assets/images/footer_logos/logo-orcid-1525375623187.png" width="85"/></a></div><div> <a href="http://www.portico.org/"><img alt="门廊数字保存服务" height="60" src="/pb-assets/images/footer_logos/logo-portico-1525375623203.png" width="63"/></a> </div></div></div></div></div></div><div class="footer_second-row col-xs-12 gutterless"><div class="row container" data-widget-def="ux3-layout-widget" data-widget-id="f963f9aa-5ade-4a09-8515-e6cd8e6364cf"><div class="col-xs-12"><div class="footer_second-row_left col-md-2 gutterless"> <a href="/"><img alt="美国化学会刊物" height="52" src="/pb-assets/images/pubslogo-small-1444685090580.png" width="210"/></a><div class="footer_menu"><ul><li class="footer_menu_address"><span>西北十六街 1155 号</span></li><li class="footer_menu_address"><span>华盛顿特区 20036</span></li><li class="footer_menu_copyright"><a href="http://www.acs.org/content/acs/en/copyright.html">版权所有 © 2023<br/>美国化学学会</a></li></ul></div></div><div class="footer_second-row_middle col-md-2 gutterless"></div><div class="footer_second-row_right col-md-8 gutterless"><div class="footer_second-row_about col-xs-4"><h2>关于</h2><ul><li><a href="/page/about-us.html">关于 ACS 出版物</a></li><li><a href="http://acsopenscience.org">ACS 和开放获取</a></li><li><a href="https://www.acs.org/content/acs/en/membership/member-benefits/publications-discounts.html">美国化学会会员资格</a></li></ul></div><div class="footer_second-row_resources col-xs-5"><h2>资源和信息</h2><ul><li><a href="/action/showPublications?pubType=journal">期刊AZ</a></li><li><a href="/action/showPublications?pubType=book">书籍和参考</a></li><li><a href="http://acsmediakit.org/digital/acs-pubs/?utm_source=Footer&amp;utm_medium=Pubs&amp;utm_campaign=CEN">广告媒体工具包</a></li><li><a href="https://solutions.acs.org">机构销售</a></li><li><a href="https://publish.acs.org/publish/">美国化学会出版中心</a></li><li><a href="http://www.acs.org/content/acs/en/privacy.html">隐私政策</a></li><li><a href="https://www.acs.org/content/acs/en/terms.html">使用条款</a></li></ul></div><div class="footer_second-row_support col-xs-3"><h2>支持与联系</h2><ul><li><a href="https://acs.service-now.com/acs">帮助</a></li><li><a class="help help-chat" href="#" onclick="SnapEngage.startLink();return false;">在线聊天</a></li><li><a href="https://acs.service-now.com/acs">常问问题</a></li></ul></div></div><div class="footer_social_section col-xs-12"><div class="footer_social_header"><h2>与 ACS 出版物联系</h2></div><div class="footer_social"><ul><li><a aria-label="email" class="icon-envelope-o" href="https://preferences.acs.org/journals">
+</a></li><li><a aria-label="facebook" class="icon-facebook" href="https://www.facebook.com/ACSPublications/" rel="noreferrer" target="_blank">
+</a></li><li><a aria-label="twitter" class="icon-twitter" href="https://twitter.com/ACSPublications" rel="noreferrer" target="_blank">
+</a></li><li><a aria-label="youtube" class="icon-youtube-play" href="https://www.youtube.com/user/AmerChemSoc" rel="noreferrer" target="_blank">
+</a></li><li><a aria-label="rss feed" class="icon-rss" href="/page/follow.html?widget=follow-pane-rss">
+</a></li></ul></div></div></div></div></div></footer><style type="text/css">
+#gdpr-message-modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 2;
+    /* Sit on top */
+    /*padding-top: 100px;*/
+    /* Location of the box */
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    /* Full width */
+    /*height: 100%;*/
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    /*background-color: rgb(0,0,0);*/
+    /* Fallback color */
+    /*background-color: rgba(0,0,0,0.4);*/
+    /* Black w/ opacity */
+}
+#gdpr-message-content {
+    font-family: Arial;
+    background-color: #005083;
+    color: #fff;
+    margin: auto;
+    padding: 5px 0 10px 0;
+    /*border: 1px solid #888;*/
+    box-shadow: 0 -1px 3px #666;
+    width: 100%;
+    display: block;
+    bottom: 0;
+}
+#gdpr-message-container {
+    /*width: 1130px;*/
+    margin: 0 auto;
+}
+.gdpr-innerwrap {
+    display: block;
+    /*width: 1100px;*/
+    margin: 0 auto;
+    text-align: center;
+}
+#gdpr-message-content h1 {
+    color: #0629b5;
+    font-size: 26px;
+    margin: 0.5em 0 0 0;
+    border-bottom: solid 2px #4c7fb9;
+    display: inline;
+    padding-bottom: 10px;
+}
+#gdpr-message-content h4 {
+    display: inline-block;
+    margin-left: 0;
+    margin-right: 14px;
+    margin-top: 13px;
+    /*width: 980px;*/
+    font-size: 14px;
+    font-weight: normal;
+}
+#gdpr-message-content p {
+    font-size: 14px;
+    margin: 2em 2em 0.5em 0em;
+    text-align: left;
+    font-weight: bold;
+}
+#gdpr-message-content a,
+#gdpr-message-content a:hover {
+    color: #9bcfff;
+}
+.gdpr-listwrap {
+    display: block;
+    margin-bottom: 10px;
+    min-height: 100px;
+    min-width: 200px;
+}
+#gdpr-message-content ul {
+    margin-top: 20px;
+    font-size: 13px;
+}
+#gdpr-ul1 {
+    display: inline-block;
+    float: left;
+}
+#gdpr-ul2 {
+    display: inline-block;
+    margin-left: 10px;
+}
+#gdpr-message-content ul li {
+    margin-top: 4px;
+}
+a#gdpr-con-btn,
+a#gdpr-con-btn:hover {
+    width: 110px;
+    height: 35px;
+    background: #fec82a;
+    background-image: none;
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #fec82a), color-stop(100%, #daa301));
+    background-image: -webkit-linear-gradient(top, #fec82a, #daa301);
+    background-image: -moz-linear-gradient(top, #fec82a, #daa301);
+    background-image: -o-linear-gradient(top, #fec82a, #daa301);
+    background-image: linear-gradient(top, #fec82a, #daa301);
+    border-radius: 4px;
+    color: #004a7b;
+    display: inline-block;
+    text-decoration: none;
+    line-height: 35px;
+    text-align: center;
+    margin-top: 5px;
+    /*margin-right: 14px;*/
+    /*float: right;*/
+    font-weight: bold;
+}
+#gdpr-message-btn {
+    width: 60px;
+    height: 38px;
+    background: #4b8fc2;
+    border-radius: 4px;
+    color: white;
+    display: inline-block;
+    margin-top: -4px;
+    font-size: 12px;
+}
+a#closebtn {
+    float: right;
+    color: #d4e5ef;
+}
+#gdpr-input {
+    width: 200px;
+    height: 30px;
+    border-radius: 3px;
+    border-width: 1px;
+    box-shadow: none;
+    margin-right: 10px;
+    font-size: 14px;
+    outline: none;
+    padding-left: 2px;
+    display: inline-block;
+    float: left;
+}
+#gdpr-message-content p.gdpr_err {
+    font-size: 15px;
+    margin-top: 10px;
+}
+#gdpr-message-modal.mobile, #gdpr-message-modal.mobile .gdpr-message-content {
+    height: 160px;
+}
+@media only screen and (min-width: 1026px) and (max-width: 1368px) {
+	#gdpr-message-content h4 {
+		width: 80%;
+		text-align: left;
+	}
+}
+</style><div id="gdpr-message-modal"><div id="gdpr-message-content"><!-- <div id="gdpr-message-container">
+			<a id="closebtn" href="#"><i class="icon-times-circle-o"></i></a> --><div class="gdpr-innerwrap container"><h4>本网站使用 cookie 来改善您的用户体验。继续使用该网站，即表示您接受我们使用 cookie。<a href="http://www.acs.org/content/acs/en/privacy.html">阅读 ACS 隐私政策</a>。</h4><a href="#" id="gdpr-con-btn">继续</a></div><!-- </div> --></div></div><script type="text/javascript">
+"use strict"
+//Script checks gdpr cookie and submits form
+	/* 
+	Create an in-page pop-up message, only for the InfoCentral homepage, that will gather email registrants for the library marketing list.
+	 
+	Needs the end point
+	*/
+
+var infoCentralCapture = (function() {
+
+    //Detect mobile device
+    window.mobilecheck = function() {
+        var check = false;
+        (function(a){if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(a)||/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0,4))) check = true;})(navigator.userAgent||navigator.vendor||window.opera);
+              return check;
+        };
+
+    var _isMobile = window.mobilecheck();
+    if (_isMobile) {
+        $('#gdpr-message-modal').addClass('mobile');
+    }
+
+    var emailValid = "",
+        time = 3000,
+        btnStatus = true,
+        errorStatus = false,
+        errormessage = "<p class='gdpr_err'><b>Please Enter a valid email address<b><p>";
+
+    function init() {
+        setTimeout(function() {
+            var cookieExist = getCookie("gdpr");
+            if (cookieExist) {
+                //console.log("gdpr cookie exist");
+                return false;
+            } else {
+                //console.log("gdpr cookie does not exist")
+                gdprMessage();
+            }
+            //Events
+            $('#closebtn').on("click", hideForm);
+
+            //Handle submit
+            $('#gdpr-message-btn').on("click", function(event) {
+                handleClick();
+            });
+
+            // //Hide if clicked outside div - TO DO stop handling click after submit
+            // $(document).click(function(event) {
+            // 	event.stopPropagation();
+            //   console.log(event.target);
+            //   if (!$(event.target).closest("#gdpr-message-content").length) {
+            //     $("body").find("#gdpr-message-modal").hide();
+            //     $(this).off();
+            //   }
+            // });
+            $('#gdpr-con-btn').click(function() {
+                setCookie("gdpr", "true");
+                hideForm();
+            });
+        }, time);
+    }
+
+    //Show the message
+    function gdprMessage() {
+        //console.log("Show GDPR Message");
+        var tMessage, emailInput, messageButton, ewrap;
+
+        $('#gdpr-message-modal').show();
+    }
+
+    function handleClick() {
+        //console.log($("#gdpr-input").val());
+        emailValid = validateEmail($("#gdpr-input").val());
+        if (emailValid) {
+            //Submit the form
+            //Hide form
+            if ($('.gdpr_err')) {
+                $('.gdpr_err').hide();
+            }
+
+            $("#gdpr-message-content")
+                //If successful then...
+            setCookie("gdpr", "true");
+            //console.log("emailValid " + emailValid + " submiting form");
+        } else {
+            //Show error message
+            gdprErrorMessage();
+            //console.log("emailValid " + emailValid);
+        }
+    }
+
+    function gdprErrorMessage() {
+        if (errorStatus) {
+            return false;
+        } else {
+            errorStatus = true;
+            $("#gdpr-message-content").append(errormessage);
+        }
+    }
+
+    function validateEmail(email) {
+        var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(String(email).toLowerCase());
+    }
+
+    function setCookie(name, value) {
+        var expires = "";
+        expires = "; expires=Fri, 31 Dec 9999 23:59:59 GMT";
+        document.cookie = name + "=" + (value || "") + expires + "; path=/";
+    }
+
+    function getCookie(name) {
+        var match = document.cookie.match(new RegExp(name + '=([^;]+)'));
+        if (match) return match[1];
+    }
+
+    function hideForm() { //And set cookie
+        $('#gdpr-message-modal').hide();
+        setCookie("gdpr", "false");
+        gtag('event', 'GDPR Modal', { 'event_category': 'Pubs GDPR', 'event_label':'GDPR Dismissal'});
+    }
+
+    return {
+        init: init
+    }
+})();
+
+$(document).ready(infoCentralCapture.init);
+</script><div class="activity-container hidden-lg hidden-md"><div class="recentlyViewed" style="right: -100%;"><div class="activity_title_container"><span class="activity_title">最近浏览过的</span><a class="activity_back" href="javascript:void(0)"><i class="icon-angle-left"></i></a></div></div></div><script>
+    //Top nav tracking
+
+    (function(){
+        $('.header_my-activity a:first').on('click', function(e){
+            e.preventDefault();
+            //console.log('Button , Activity')
+            gtag('event', 'Button', { 'event_category': 'Top Nav', 'event_label':'Activity'});
+        })
+
+
+        $('.pubModal_button').on('click', function(e){
+            e.preventDefault();
+            //console.log('Button , Publications')
+            gtag('event', 'Button', { 'event_category': 'Top Nav', 'event_label':'Publications'});
+
+        }) 
+
+        $('.header_burger-menu_button').on('click', function(e){
+            e.preventDefault();
+            //console.log('Button , Hamburger');
+            gtag('event', 'Button', { 'event_category': 'Top Nav', 'event_label':'Hamburger'});
+        }) 
+
+        // $('.header_burger-menu_content ul li').on('click', function(e){
+        //     // e.preventDefault();
+        //     var idx = $(this).index();
+        //     console.log('Menu item' + idx)
+        // })
+    })();
+    
+    
+</script><!-- AdRoll Pixel --><script type="text/javascript">
+    adroll_adv_id = "3LBZJ4KXKBF2PJ46QCMT3X";
+    adroll_pix_id = "6EITYRDI4FFGJPSZQ62UJJ";
+
+    (function () {
+        var _onload = function(){
+            if (document.readyState && !/loaded|complete/.test(document.readyState)){setTimeout(_onload, 10);return}
+            if (!window.__adroll_loaded){__adroll_loaded=true;setTimeout(_onload, 50);return}
+            var scr = document.createElement("script");
+            var host = (("https:" == document.location.protocol) ? "https://s.adroll.com" : "http://a.adroll.com");
+            scr.setAttribute('async', 'true');
+            scr.type = "text/javascript";
+            scr.src = host + "/j/roundtrip.js";
+            ((document.getElementsByTagName('head') || [null])[0] ||
+                document.getElementsByTagName('script')[0].parentNode).appendChild(scr);
+        };
+        if (window.addEventListener) {window.addEventListener('load', _onload, false);}
+        else {window.attachEvent('onload', _onload)}
+    }());
+</script><!-- Twitter universal website tag code --><!-- Commented out for ACHS-6152
+<script>
+    !function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+    },s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
+    a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+    // Insert Twitter Pixel ID and Standard Event data below
+    twq('init','o3njp');
+    twq('track','PageView');
+</script>
+--><!-- Facebook Pixel Code --><!-- Commented out for ACHS-6152
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '529840281033320');
+    fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=529840281033320&amp;ev=PageView&amp;noscript=1"
+/></noscript>
+--><div class="showMenuAlertMsg-popup"><div class="pairing-affiliations-popup-content" tabindex="0"><div class="pairing-affiliations-header"> <button class="close paringAffClose" type="button"><i aria-hidden="true" class="icon-close_thin"></i></button></div><div class="responsrMsg"></div></div></div><script>
+// LIT-455776 workaround
+// Moving the popup before the header content for tab accessibility
+document.addEventListener('DOMContentLoaded', () => {
+    const headerNode = $('.header_content');
+    const popupNode = $('.pairing-affiliations-popup');
+
+    if (!headerNode.length || !popupNode.length)
+        return;
+
+    popupNode.insertBefore(headerNode);  
+});
+</script><!-- begin SnapEngage code --><script type="text/javascript">
+  (function() {
+    var se = document.createElement('script'); se.type = 'text/javascript'; se.async = true;
+    se.src = 'https://storage.googleapis.com/code.snapengage.com/js/921a4ec7-cecf-43a6-afa5-6cd1346520b1.js';
+    var done = false;
+    se.onload = se.onreadystatechange = function() {
+      if (!done&&(!this.readyState||this.readyState==='loaded'||this.readyState==='complete')) {
+        done = true;
+        /* Place your SnapEngage JS API code below */
+        /* SnapEngage.allowChatSound(true); Example JS API: Enable sounds for Visitors. */
+      }
+    };
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(se, s);
+  })();
+</script><style>
+    #SnapABug_Button,
+    #designstudio-button {
+        display: none;
+    }
+</style><!-- end SnapEngage code --></div></div><script>if (typeof define !== 'undefined')
+    if (define.amd)
+        define.amd = false</script><script src="/products/achs/releasedAssets/js/build.lazyload.bundle-15e849acd84fe0b65f26.js"></script><script src="/products/achs/releasedAssets/js/main.bundle-1914ecc65712af90d98a.js"></script><script src="/wro/m4dd~product.js" type="text/javascript"></script><script>(function(){var js = "window['__CF$cv$params']={r:'7ae00234b9d95a52',m:'IsVghwCaEVFwA8Xj.k_c4hhBu5jiwEUgHI8ficSpOL0-1679840157-0-Ado2DVEW3QLzdOQ8rTW+7QwwQ8fhBvl3H7+Mh3ZidxfAcYRTzruGEJsVCFGOPKqrIt76elCQqNePZTTs96f0qJBUw1Eb3Yv3vdaYg2Ml9QQm0p0+oU+JNq6+iQu+E37AJR/y92BEkjCBbJ8/0LSLJ+o=',s:[0x3f4d611425,0xeba8afbc19],u:'/cdn-cgi/challenge-platform/h/b'};var now=Date.now()/1000,offset=14400,ts=''+(Math.floor(now)-Math.floor(now%offset)),_cpo=document.createElement('script');_cpo.nonce='',_cpo.src='/cdn-cgi/challenge-platform/h/b/scripts/alpha/invisible.js?ts='+ts,document.getElementsByTagName('head')[0].appendChild(_cpo);";var _0xh = document.createElement('iframe');_0xh.height = 1;_0xh.width = 1;_0xh.style.position = 'absolute';_0xh.style.top = 0;_0xh.style.left = 0;_0xh.style.border = 'none';_0xh.style.visibility = 'hidden';document.body.appendChild(_0xh);function handler() {var _0xi = _0xh.contentDocument || _0xh.contentWindow.document;if (_0xi) {var _0xj = _0xi.createElement('script');_0xj.nonce = '';_0xj.innerHTML = js;_0xi.getElementsByTagName('head')[0].appendChild(_0xj);}}if (document.readyState !== 'loading') {handler();} else if (window.addEventListener) {document.addEventListener('DOMContentLoaded', handler);} else {var prev = document.onreadystatechange || function () {};document.onreadystatechange = function (e) {prev(e);if (document.readyState !== 'loading') {document.onreadystatechange = prev;handler();}};}})();</script><script crossorigin="anonymous" data-cf-beacon='{"rayId":"7ae00234b9d95a52","version":"2023.3.0","b":1,"token":"0562ec7bcba14d1cae3543aa43d6e749","si":100}' defer="" integrity="sha512-M3hN/6cva/SjwrOtyXeUa5IuCT0sedyfT+jK/OV+s+D0RnzrTfwjwJHhd+wYfMm9HJSrZ1IKksOdddLuN6KOzw==" src="https://static.cloudflareinsights.com/beacon.min.js/vb26e4fa9e5134444860be286fd8771851679335129114"></script></body></html>
