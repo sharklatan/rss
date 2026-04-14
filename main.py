@@ -64,37 +64,12 @@ def extract_full_article(article_url):
         
         # Procesar párrafos, listas y encabezados preservando estructura
         text_parts = []
-        encontrado_fin = False
         
-        for idx, element in enumerate(content.find_all(['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'li', 'blockquote', 'pre'])):
-            if encontrado_fin:
-                break
-                
+        for element in content.find_all(['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'li', 'blockquote', 'pre']):
             # Obtener texto del elemento
             elem_text = element.get_text(strip=True)
             
             if elem_text:
-                # Detectar patrones de fin de artículo (comentarios, links de afiliados, etc.)
-                # Patrones en español e inglés
-                end_patterns = [
-                    'Háganos saber en los comentarios',
-                    'leave a comment',
-                    'Let us know in the comments',
-                    'dime en los comentarios',
-                    'FTC:',
-                    'Follow',
-                    'Haz más con tus',
-                    'Make more with',
-                    'Get more with',
-                    'Best deals',
-                    'Worth checking out'
-                ]
-                
-                # Si detectamos un patrón de fin, cortamos aquí
-                if any(pattern.lower() in elem_text.lower() for pattern in end_patterns):
-                    encontrado_fin = True
-                    break
-                
                 # Agregar encabezados con énfasis visual
                 if element.name.startswith('h'):
                     text_parts.append(f"\n[{element.name.upper()}] {elem_text}\n")
@@ -110,21 +85,6 @@ def extract_full_article(article_url):
             clean_text = content.get_text(separator='\n', strip=True)
         else:
             clean_text = '\n'.join(text_parts)
-        
-        # Cortar en patrones conocidos
-        # Busca patrones como "Haz más", "Make more", "FTC:", etc. y corta ahí
-        if 'haz más con' in clean_text.lower():
-            idx = clean_text.lower().find('haz más con')
-            clean_text = clean_text[:idx].strip()
-        elif 'make more with' in clean_text.lower():
-            idx = clean_text.lower().find('make more with')
-            clean_text = clean_text[:idx].strip()
-        elif 'ftc:' in clean_text.lower():
-            idx = clean_text.lower().find('ftc:')
-            clean_text = clean_text[:idx].strip()
-        elif 'follow on' in clean_text.lower():
-            idx = clean_text.lower().find('follow on')
-            clean_text = clean_text[:idx].strip()
         
         # Limpiar múltiples saltos de línea
         while '\n\n\n' in clean_text:
@@ -262,6 +222,24 @@ def tran(sec):
             
             # Restaurar saltos de línea después de traducción
             translated_text = translated_text.replace('###NEWLINE###', '\n')
+            
+            # AHORA: Aplicar cutoff de patrones EN EL TEXTO TRADUCIDO
+            # Esto asegura que cortamos DESPUÉS de que los patrones han sido traducidos
+            if text_type == 'desc':
+                # Patrones en el idioma destino (español, etc.)
+                cutoff_patterns = [
+                    'haz más con',
+                    'ftc:',
+                    'háganos saber en los comentarios',
+                    'consulta el resumen',
+                    'sigue leyendo'
+                ]
+                
+                for pattern in cutoff_patterns:
+                    if pattern in translated_text.lower():
+                        idx = translated_text.lower().find(pattern)
+                        translated_text = translated_text[:idx].strip()
+                        break
             
             item = items[item_idx]
             if text_type == 'title':
